@@ -51,5 +51,7 @@ describe('blog page', () => {
       .find('a')
       .its('length')
       .should('be.gt', 1);
+
+    cy.get('h10')
   });
 });
