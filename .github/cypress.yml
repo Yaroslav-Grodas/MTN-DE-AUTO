@@ -27,13 +27,12 @@ jobs:
             ~/.npm
             ~/.cache/Cypress
             node_modules
-            .github/cypress-cache # Add the new cache path
           key: ${{ runner.os }}-cypress-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-cypress-
 
-      - name: Install Cypress
-        run: npm install cypress
+      - name: Install Cypress globally
+        run: npm install -g cypress
 
       - name: Install dependencies
         run: npm install
@@ -43,7 +42,7 @@ jobs:
         run: |
           # Run Cypress tests with Cypress Dashboard and video recording enabled
           mkdir -p cypress/temp_results
-          npx cypress run --record --key d459d4bb-f948-4824-9ee1-0ad4ff054194 --reporter junit --reporter-options "mochaFile=cypress/temp_results/report.xml"
+          cypress run --record --key d459d4bb-f948-4824-9ee1-0ad4ff054194 --reporter junit --reporter-options "mochaFile=cypress/temp_results/report.xml"
 
           # Display the test results for debugging purposes
           cat cypress/temp_results/report.xml
@@ -67,7 +66,7 @@ jobs:
         run: |
           # Run Cypress tests and save screenshots in the "screenshots" directory
           mkdir -p cypress/screenshots
-          npx cypress run --env screenshotOnRun=true
+          cypress run --env screenshotOnRun=true
 
       - name: Archive Cypress screenshots
         uses: actions/upload-artifact@v2
