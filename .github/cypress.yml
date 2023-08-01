@@ -20,15 +20,17 @@ jobs:
         with:
           node-version: 14
 
-      - name: Install Cypress and Cache Binary
-        run: |
-          # Clear the existing Cypress binary cache to ensure the latest version is installed
-          npx cypress cache clear
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.npm
+            ~/.cache/Cypress
+            node_modules
+          key: ${{ runner.os }}-cypress-${{ hashFiles('**/yarn.lock') }}
 
-          # Install Cypress and cache the binary
-          npx cypress install
-        env:
-          CI: true
+      - name: Install Cypress
+        run: npx cypress install
 
       - name: Install dependencies
         run: npm install
