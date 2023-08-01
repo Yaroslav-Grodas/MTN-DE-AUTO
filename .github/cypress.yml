@@ -23,14 +23,15 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Install Cypress
+        run: npx cypress install
+
       - name: Run Cypress tests and generate report
         id: cypress-test
         run: |
-          # Run Cypress tests and store results in a temporary directory
-          mkdir -p cypress/temp_results
-
           # Run Cypress tests with Cypress Dashboard and video recording enabled
-          npm run cy:run -- --record --key d459d4bb-f948-4824-9ee1-0ad4ff054194 --reporter junit --reporter-options "mochaFile=cypress/temp_results/report.xml"
+          mkdir -p cypress/temp_results
+          npx cypress run --record --key d459d4bb-f948-4824-9ee1-0ad4ff054194 --reporter junit --reporter-options "mochaFile=cypress/temp_results/report.xml"
 
           # Display the test results for debugging purposes
           cat cypress/temp_results/report.xml
@@ -54,7 +55,7 @@ jobs:
         run: |
           # Run Cypress tests and save screenshots in the "screenshots" directory
           mkdir -p cypress/screenshots
-          npm run cy:run -- --env screenshotOnRun=true
+          npx cypress run --env screenshotOnRun=true
 
       - name: Archive Cypress screenshots
         uses: actions/upload-artifact@v2
