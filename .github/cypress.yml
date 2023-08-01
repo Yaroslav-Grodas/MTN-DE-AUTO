@@ -27,6 +27,7 @@ jobs:
             ~/.npm
             ~/.cache/Cypress
             node_modules
+            .github/cypress-cache # Add the new cache path
           key: ${{ runner.os }}-cypress-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-cypress-
