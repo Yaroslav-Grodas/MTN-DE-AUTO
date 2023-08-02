@@ -4,6 +4,8 @@ describe('template spec', () => {
   it('should visit home page and check all main elements', () => {
     cy.visit('https://shopmtn.de/');
 
+    cy.wait(5000);
+
     cy.contains('.needsclick', 'CONTINUE TO MTN SHOP DE')
       .click();
 
