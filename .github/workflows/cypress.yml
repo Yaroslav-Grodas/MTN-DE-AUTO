@@ -42,7 +42,7 @@ jobs:
         run: |
           # Run Cypress tests with Cypress Dashboard and video recording enabled
           mkdir -p cypress/temp_results
-          cypress run --record --key d459d4bb-f948-4824-9ee1-0ad4ff054194 --reporter junit --reporter-options "mochaFile=cypress/temp_results/report.xml"
+          cypress run --record --key a0b46213-9aa6-43a3-940f-0302ac1d81ba --reporter junit --reporter-options "mochaFile=cypress/temp_results/report.xml"
 
           # Display the test results for debugging purposes
           cat cypress/temp_results/report.xml
