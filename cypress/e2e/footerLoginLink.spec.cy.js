@@ -55,5 +55,11 @@ describe('footer login link', () => {
 
     cy.contains('a[href="/account/login"]', 'Login')
       .should('exist');
+
+    cy.contains('.gr-btn', 'Anmeldung')
+      .click();
+
+    cy.get('.klaviyo-form-version-cid_1')
+      .should('exist'); //Check that form to register with amount exists
   });  
 });
