@@ -22,15 +22,27 @@ describe('calculate shipping', () => {
     cy.get('a[href="/pages/unsere-marken"]')
       .click();
 
+    cy.url()
+      .should('include', '/unsere-marken');
+
     cy.wait(5000);
 
     cy.contains('.gr-brands-list__item', 'Beneca')
       .click();
 
+    cy.url()
+      .should('include', '/beneca');
+
+    cy.get('h1')
+      .should('contain.text', 'Beneca');
+
     cy.wait(10000);
 
     cy.contains('.gr-card-rich-product__heading', 'Beneca 50 mm einteiliger Spanngurt')
       .click();
+
+    cy.get('h1')
+      .should('contain.text', 'Beneca 50 mm einteiliger Spanngurt');
 
     cy.wait(2000);
 
@@ -56,15 +68,27 @@ describe('calculate shipping', () => {
     cy.get('a[href="/pages/unsere-marken"]')
       .click();
 
+    cy.url()
+      .should('include', '/unsere-marken');
+
     cy.wait(5000);
 
     cy.contains('.gr-brands-list__item', 'Dunlop')
       .click();
 
+    cy.url()
+      .should('include', '/dunlop');
+
+    cy.get('h1')
+      .should('contain.text', 'Dunlop');
+
     cy.wait(10000);
 
     cy.contains('.gr-card-rich-product__heading', 'Dunlop Purofort Thermo+ Full Safety')
       .click();
+
+    cy.get('h1')
+      .should('contain.text', 'Dunlop Purofort Thermo+ Full Safety');
 
     cy.wait(2000);
 
@@ -90,15 +114,27 @@ describe('calculate shipping', () => {
     cy.get('a[href="/pages/unsere-marken"]')
       .click();
 
+    cy.url()
+      .should('include', '/unsere-marken');
+
     cy.wait(5000);
 
     cy.contains('.gr-brands-list__item', 'Hansen')
       .click();
 
+    cy.url()
+      .should('include', '/hansen-protection');
+
+    cy.get('h1')
+      .should('contain.text', 'Hansen');
+
     cy.wait(10000);
 
     cy.contains('.gr-card-rich-product__heading', 'Hansen Protection Ersatz-Schrittgurt für Leisure Life Jacken 82964')
       .click();
+
+    cy.get('h1')
+      .should('contain.text', 'Hansen Protection Ersatz-Schrittgurt für Leisure Life Jacken 82964');
 
     cy.wait(2000);
 
@@ -124,15 +160,27 @@ describe('calculate shipping', () => {
     cy.get('a[href="/pages/unsere-marken"]')
       .click();
 
+    cy.url()
+      .should('include', '/unsere-marken');
+
     cy.wait(5000);
 
     cy.contains('.gr-brands-list__item', 'Safetex')
       .click();
 
+    cy.url()
+      .should('include', '/safetex');
+
+    cy.get('h1')
+      .should('contain.text', 'Safetex');
+
     cy.wait(10000);
 
     cy.contains('.gr-card-rich-product__heading', 'Safetex Rundschlinge SX schwarz - 10 Stück')
       .click();
+
+    cy.get('h1')
+      .should('contain.text', 'Safetex Rundschlinge SX schwarz - 10 Stück');
 
     cy.wait(2000);
 
@@ -158,15 +206,27 @@ describe('calculate shipping', () => {
     cy.get('a[href="/pages/unsere-marken"]')
       .click();
 
+    cy.url()
+      .should('include', '/unsere-marken');
+
     cy.wait(5000);
 
     cy.contains('.gr-brands-list__item', 'Crewsaver')
       .click();
 
+    cy.url()
+      .should('include', '/crewsaver');
+
+    cy.get('h1')
+      .should('contain.text', 'Crewsaver');
+
     cy.wait(10000);
 
     cy.contains('.gr-card-rich-product__heading', 'Crewsaver Premier Kinderschwimmweste 83205')
       .click();
+
+    cy.get('h1')
+      .should('contain.text', 'Crewsaver Premier Kinderschwimmweste 83205');
 
     cy.wait(2000);
 

@@ -22,35 +22,88 @@ describe('FAQ page', () => {
     cy.url()
       .should('include', '/faqs');
 
-    cy.get('h1')
-      .should('contain.text', 'FAQs');
-
-    cy.get('.gr-main-page__content')
-      .should('exist');
-
-    cy.get('#GeneralTab')
+    cy.contains('.gr-btn', 'Allgemeines')
       .click();
 
-    cy.wait(2000);
-
-    cy.get('.FAQaccordion')
-      .should('contain.text', ' Wieso sollte ich bei Ihnen bestellen?');
-
-    cy.get('[id="Shipping&Returns"]')
+    cy.contains('.gr-accordion__title', 'Wieso sollte ich bei Ihnen bestellen?')
       .click();
 
+    cy.get('.gr-accordion__content')
+      .should('exist')
+      .should('not.be.empty');
 
-    cy.get('.FAQaccordion')
-      .should('contain.text', ' Kann ich aktuell mit Lieferverzögerungen rechnen?');
-
-    cy.wait(2000);
-
-    cy.get('#Sizing')
+    cy.contains('.gr-accordion__title', 'Gibt es Ermäßigungen?')
       .click();
 
-    cy.wait(2000);
+    cy.get('.gr-accordion__content')
+      .should('exist')
+      .should('not.be.empty');
 
-    cy.get('.FAQaccordion')
-      .should('contain.text', ' Woher weiß ich welche Größe ich in Schuhen, Kleidung und Handschuhen brauche? ');
+    cy.contains('.gr-accordion__title', 'Ich finde das gesuchte Produkt nicht. Bedeutet das, Sie führen dieses nicht?')
+      .click();
+
+    cy.get('.gr-accordion__content')
+      .should('exist')
+      .should('not.be.empty');
+
+    
+
+    cy.contains('.gr-btn', 'Versand & Rückgabe')
+      .click();
+
+    cy.contains('.gr-accordion__title', 'Kann ich aktuell mit Lieferverzögerungen rechnen?')
+      .click();
+
+    cy.get('.gr-accordion__content')
+      .should('exist')
+      .should('not.be.empty');
+
+    cy.contains('.gr-accordion__title', 'Wo kommt meine Bestellung her?')
+      .click();
+
+    cy.get('.gr-accordion__content')
+      .should('exist')
+      .should('not.be.empty');
+
+    cy.contains('.gr-accordion__title', 'Erhalte ich Informationen zur Sendungsverfolgung für meine Bestellung?')
+      .click();
+
+    cy.get('.gr-accordion__content')
+      .should('exist')
+      .should('not.be.empty');
+
+    cy.contains('.gr-accordion__title', 'Was ist, wenn ich meine Bestellung ändern muss?')
+      .click();
+
+    cy.get('.gr-accordion__content')
+      .should('exist')
+      .should('not.be.empty');
+
+    cy.contains('.gr-accordion__title', 'Ich möchte meinen Kauf zurückgeben. Was muss ich tun?')
+      .click();
+
+    cy.get('.gr-accordion__content')
+      .should('exist')
+      .should('not.be.empty');
+
+
+
+    cy.contains('.gr-btn', 'Größen')
+      .click();
+
+    cy.contains('.gr-accordion__title', 'Woher weiß ich welche Größe ich in Schuhen, Kleidung und Handschuhen brauche?')
+      .click();
+
+    cy.get('.gr-accordion__content')
+      .should('exist')
+      .should('not.be.empty');
+
+    cy.contains('.gr-accordion__title', 'Kann ich ein Produkt umtauschen, wenn es mir nicht passt?')
+      .click();
+
+    cy.get('.gr-accordion__content')
+      .should('exist')
+      .should('not.be.empty');
+
   });
 });
