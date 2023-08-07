@@ -27,3 +27,9 @@
 Cypress.Commands.add('findByPlaceholder', placeholder => {
     cy.get(`[placeholder="${placeholder}"]`);
   });
+
+  Cypress.Commands.add('saveTextValue', (value) => {
+    cy.wrap(value).as('savedTextValue');
+  });
+  
+  
