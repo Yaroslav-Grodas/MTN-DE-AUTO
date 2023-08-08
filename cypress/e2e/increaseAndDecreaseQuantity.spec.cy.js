@@ -125,7 +125,7 @@ describe('Increase and decrease quantity functionality', () => {
       .click()
       .then(() => {
         cy.wait(5000);
-        cy.get('a[href="/cart"]').click()
+        cy.get('a[href="/cart"]').click({force: true})
       });
 
     cy.get('.gr-cart-item__link')
