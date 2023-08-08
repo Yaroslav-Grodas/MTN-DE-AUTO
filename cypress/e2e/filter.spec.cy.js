@@ -18,7 +18,7 @@ describe('filter functionality', () => {
       .click();
   });
 
-  it.only('should allow user to filter Brand', () => {
+  it('should allow user to filter Brand', () => {
 
     cy.contains('.gr-header-menu__link', 'Sicherheitsausrüstung & PSAgA')
       .click();
@@ -69,6 +69,36 @@ describe('filter functionality', () => {
 
   it('should allow user to filter Type', () => {
 
+    cy.contains('.gr-header-menu__link', 'Sicherheitsausrüstung & PSAgA')
+      .click();
+
+    cy.get('#gr-btn-filters-show')
+      .click();
+
+    cy.get('.gr-filters')
+      .should('exist');
+
+    cy.wait(5000);
+
+    cy.contains('.gr-checkbox-wrap', 'Aluring')
+      .click({ force: true });
+
+    cy.get('div.gr-search-popup.gr-hidden')
+      .find('a.gr-filters-close')
+      .click({ force: true });
+
+    cy.wait(10000);
+
+    cy.get('.gr-card-rich-product__details').each((productCard) => {
+      // Use .as() to alias the productCard element
+      cy.wrap(productCard).as('productCard');
+    
+      // Now you can continue with further commands on the aliased productCard
+      cy.get('@productCard')
+        .find('.gr-card-rich-product__heading')
+        .invoke('text')
+        .should('include', 'Aluring');
+    });
   });
 
   it('should allow user to filter Specification', () => {
