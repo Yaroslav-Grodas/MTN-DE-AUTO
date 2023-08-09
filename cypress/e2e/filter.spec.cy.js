@@ -57,13 +57,10 @@ describe('filter functionality', () => {
     cy.get('.gr-card-rich-product__details').each((productCard) => {
         cy.wrap(productCard).should('contain.text', 'Kask');
     });
-      
-      
-      
   
   });
 
-  it('should allow user to filter Price', () => {
+  it.skip('should allow user to filter Price', () => {
 
   });
 
@@ -80,7 +77,7 @@ describe('filter functionality', () => {
 
     cy.wait(5000);
 
-    cy.contains('.gr-checkbox-wrap', 'Aluring')
+    cy.contains('.gr-checkbox-wrap', 'Abseilachter')
       .click({ force: true });
 
     cy.get('div.gr-search-popup.gr-hidden')
@@ -97,15 +94,78 @@ describe('filter functionality', () => {
       cy.get('@productCard')
         .find('.gr-card-rich-product__heading')
         .invoke('text')
-        .should('include', 'Aluring');
+        .should('include', 'Abseilachter');
     });
   });
 
   it('should allow user to filter Specification', () => {
 
+    cy.contains('.gr-header-menu__link', 'Sicherheitsausrüstung & PSAgA')
+      .click();
+
+    cy.get('#gr-btn-filters-show')
+      .click();
+
+    cy.get('.gr-filters')
+      .should('exist');
+
+    cy.wait(5000);
+
+    cy.get('[data-name="Spezifikationen"]')
+      .find('button[data-filter-index="3"]')
+      .click();
+
+    cy.contains('.gr-checkbox-wrap', 'Bremspaltte')
+      .click({ force: true });
+
+    cy.wait(5000)
+
+    cy.get('div.gr-search-popup.gr-hidden')
+      .find('a.gr-filters-close')
+      .click({ force: true });
+
+    cy.wait(10000);
+
+    cy.get('.gr-card-rich-product__details').each((productCard) => {
+        // Use .as() to alias the productCard element
+        cy.wrap(productCard).as('productCard');
+      
+        // Now you can continue with further commands on the aliased productCard
+        cy.get('@productCard')
+          .find('.gr-card-rich-product__heading')
+          .invoke('text')
+          .should('include', 'Bremspaltte');
+    });
   });
 
   it('should allow user to filter Color', () => {
 
+    cy.contains('.gr-header-menu__link', 'Arbeitskleidung')
+      .click();
+
+    cy.get('#gr-btn-filters-show')
+      .click();
+
+    cy.get('.gr-filters')
+      .should('exist');
+
+    cy.wait(5000);
+
+    cy.get('[data-name="Army Grün"]')
+      .click();
+
+    cy.get('div.gr-search-popup.gr-hidden')
+      .find('a.gr-filters-close')
+      .click({ force: true });
+
+    cy.wait(10000);
+
+    cy.contains('.gr-card-rich-product__heading', 'Blåkläder Garten Shorts')
+      .click();
+
+    cy.get('product-option')
+      .should('contain', 'Army Grün');
+
   });
 });
+
