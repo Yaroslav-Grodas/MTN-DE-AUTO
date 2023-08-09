@@ -97,24 +97,24 @@ describe('Adding to the cart, checkout, removing', () => {
 
     cy.wait(5000);
 
-    cy.contains('.gr-brands-list__item', 'Aliens')
+    cy.contains('.gr-brands-list__item', 'Crewsaver')
       .click();
 
     cy.url()
-      .should('include', '/aliens');
+      .should('include', '/crewsaver');
 
     cy.get('h1')
-      .should('contain.text', 'Aliens');
+      .should('contain.text', 'Crewsaver');
 
     cy.wait(10000);
 
-    cy.contains('.gr-card-rich-product__heading', 'Werkzeugtasche SALGIR')
+    cy.contains('.gr-card-rich-product__heading', 'Crewsaver Seacrewsader 275N 3D feuerhemmende Schwimmweste 83220')
       .click();
 
     cy.url()
-      .should('include', '/werkzeugtasche-salgir')
+      .should('include', '/hansen-seacrewsader-275n-3d-fire-retardant-life-jacket-83220')
     cy.get('h1')
-      .should('contain.text', 'Werkzeugtasche SALGIR');
+      .should('contain.text', 'Crewsaver Seacrewsader 275N 3D feuerhemmende Schwimmweste 83220');
     cy.get('.gr-price__container')
       .should('exist');
 
@@ -180,7 +180,7 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.contains('[type="submit"]', 'Weiter zum Versand')
       .should('exist');
 
-    cy.contains('Werkzeugtasche SALGIR')
+    cy.contains('Crewsaver Seacrewsader 275N 3D feuerhemmende Schwimmweste 83220')
       .should('be.visible');
 
   });

@@ -45,11 +45,11 @@ describe('template spec', () => {
       .should('exist');
 
     cy.get('.gr-header-menu')
-      .contains('a', 'Industrieequipment');
+      .contains('a', 'Industrietechnik und -maschinen');
     cy.get('.gr-header-menu')
       .contains('a', 'Sicherheitsausrüstung & PSAgA');
     cy.get('.gr-header-menu')
-      .contains('a', 'Event- & Bühnentechnik');
+      .contains('a', 'Veranstaltungstechnik');
     cy.get('.gr-header-menu')
       .contains('a', 'Arbeitskleidung');
     cy.get('.gr-header-menu')
