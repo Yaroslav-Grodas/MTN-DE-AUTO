@@ -85,15 +85,144 @@ describe('switcher taxes', () => {
           }
     });
 
+  });
 
+  it('should check if the price is different after clicking the switcher SECOND PRODUCT', () => {
+
+    cy.contains('.gr-header-menu__link', 'Marken')
+      .click();
+      
+    cy.url()
+      .should('include', '/unsere-marken');
+
+    cy.wait(5000);
+
+    cy.contains('.gr-brands-list__item', 'Edelweiss')
+      .click();
+
+    cy.url()
+      .should('include', '/edelweiss');
+
+    cy.get('h1')
+      .should('contain.text', 'Edelweiss');
+
+    cy.wait(10000);
+
+    cy.contains('.gr-card-rich-product__heading', 'EDELWEISS Alukarabiner TOP straight gate')
+      .click();
+
+    cy.url()
+      .should('include', '/edelweiss-alukarabiner-top-straight-gate')
+    cy.get('h1')
+      .should('contain.text', 'EDELWEISS Alukarabiner TOP straight gate');
+    cy.get('.gr-price__container')
+      .should('exist');
+
+    let savedNumericPart; // Define the variable in a higher scope
+
+    cy.get('span.price-item--tax-include', { timeout: 10000 })
+      .should('be.visible')
+      .invoke('text')
+      .then((value) => {
+        const numericRegex = /£([\d.]+)/g;
+        const matches = numericRegex.exec(value);
+          if (matches && matches[1]) {
+            savedNumericPart = matches[1]; // Assign the value to the higher scoped variable
+            cy.saveTextValue(savedNumericPart);
+            console.log('Saved Value:', savedNumericPart); // Log the saved value to the console
+          } else {
+            console.error('No numeric value found in savedValue');
+          }
+      });
+
+    cy.get('#ex_vat')
+      .click({ force: true });
+    
+    cy.wait(5000);
+
+    cy.get('span.price-item--tax-exclude', { timeout: 10000 })
+      .should('be.visible')
+      .invoke('text')
+      .then((newValue) => {
+        const numericRegex = /£([\d.]+)/g;
+        const matches = numericRegex.exec(newValue);
+          if (matches && matches[1]) {
+            const updatedNumericPart = matches[1];
+            console.log('Updated Value:', updatedNumericPart); // Log the updated value to the console
+            expect(updatedNumericPart).not.to.equal(savedNumericPart); // Compare the new value with the saved value
+          } else {
+            console.error('No numeric value found in newValue');
+          }
+    });
 
   });
 
-  it.skip('should check if the price is different after clicking the switcher SECOND PRODUCT', () => {
+  it('should check if the price is different after clicking the switcher THIRD PRODUCT', () => {
 
-  });
+    cy.contains('.gr-header-menu__link', 'Marken')
+      .click();
+      
+    cy.url()
+      .should('include', '/unsere-marken');
 
-  it.skip('should check if the price is different after clicking the switcher THIRD PRODUCT', () => {
+    cy.wait(5000);
 
+    cy.contains('.gr-brands-list__item', 'Petzl')
+      .click();
+
+    cy.url()
+      .should('include', '/petzl');
+
+    cy.get('h1')
+      .should('contain.text', 'Petzl');
+
+    cy.wait(10000);
+
+    cy.contains('.gr-card-rich-product__heading', 'Petzl AVAO® BOD FAST Auffang- und Haltegurt')
+      .click();
+
+    cy.url()
+      .should('include', '/petzl-avao-bod-fast')
+    cy.get('h1')
+      .should('contain.text', 'Petzl AVAO® BOD FAST Auffang- und Haltegurt');
+    cy.get('.gr-price__container')
+      .should('exist');
+
+    let savedNumericPart; // Define the variable in a higher scope
+
+    cy.get('span.price-item--tax-include', { timeout: 10000 })
+      .should('be.visible')
+      .invoke('text')
+      .then((value) => {
+        const numericRegex = /£([\d.]+)/g;
+        const matches = numericRegex.exec(value);
+          if (matches && matches[1]) {
+            savedNumericPart = matches[1]; // Assign the value to the higher scoped variable
+            cy.saveTextValue(savedNumericPart);
+            console.log('Saved Value:', savedNumericPart); // Log the saved value to the console
+          } else {
+            console.error('No numeric value found in savedValue');
+          }
+      });
+
+    cy.get('#ex_vat')
+      .click({ force: true });
+    
+    cy.wait(5000);
+
+    cy.get('span.price-item--tax-exclude', { timeout: 10000 })
+      .should('be.visible')
+      .invoke('text')
+      .then((newValue) => {
+        const numericRegex = /£([\d.]+)/g;
+        const matches = numericRegex.exec(newValue);
+          if (matches && matches[1]) {
+            const updatedNumericPart = matches[1];
+            console.log('Updated Value:', updatedNumericPart); // Log the updated value to the console
+            expect(updatedNumericPart).not.to.equal(savedNumericPart); // Compare the new value with the saved value
+          } else {
+            console.error('No numeric value found in newValue');
+          }
+    });
   });
 });
