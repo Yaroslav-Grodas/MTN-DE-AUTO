@@ -54,7 +54,7 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.contains('.gr-card-rich-product__heading', 'GRÜNER TEPPICH IM AED-EXPO-STIL')
       .click();
 
-    cy.assertPageUrl('/products/aed-expo-style-gruner-teppich?*');
+    cy.assertPageUrl('/products/aed-expo-style-gruner-teppich?variant=46882625651023');
     
     cy.get('h1')
       .should('contain.text', 'GRÜNER TEPPICH IM AED-EXPO-STIL');
