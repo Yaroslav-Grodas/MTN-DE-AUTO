@@ -3,7 +3,7 @@
 describe('blog page', () => {
   it('should visit blog page and check the main parts', () => {
  
-    cy.visit('https://shopmtn.de/');
+    cy.visit('/');
 
     cy.contains('.needsclick', 'CONTINUE TO MTN SHOP DE')
       .click();
@@ -15,9 +15,9 @@ describe('blog page', () => {
 
     cy.contains('.gr-footer__nav-link', 'BLOG POSTS')
       .click();
-    cy.url()
-      .should('include', '/blogs/beitraege');
 
+    cy.assertPageUrl('/blogs/beitraege');
+    
     cy.get('h1')
       .should('contain.text', 'Beiträge');
 

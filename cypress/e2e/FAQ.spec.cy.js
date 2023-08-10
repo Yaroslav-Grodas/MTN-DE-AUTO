@@ -4,7 +4,7 @@ describe('FAQ page', () => {
 
   it('should allow user to visit FAQ page', () => {
 
-    cy.visit('https://shopmtn.de/');
+    cy.visit('/');
 
     cy.wait(5000);
 
@@ -19,8 +19,8 @@ describe('FAQ page', () => {
     cy.contains('.gr-footer__nav-link', 'FAQ')
       .click();
 
-    cy.url()
-      .should('include', '/faqs');
+    cy.assertPageUrl('/pages/faqs');
+    
 
     cy.contains('.gr-btn', 'Allgemeines')
       .click();

@@ -7,7 +7,7 @@ describe('Adding to the cart, checkout, removing', () => {
 
   beforeEach(() => {
 
-    cy.visit('https://shopmtn.de/');
+    cy.visit('/');
 
     cy.wait(5000);
     
@@ -37,16 +37,14 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.get('a[href="/pages/unsere-marken"]')
       .click();
 
-    cy.url()
-      .should('include', '/unsere-marken');
+    cy.assertPageUrl('/pages/unsere-marken');
 
     cy.wait(5000);
 
     cy.contains('.gr-brands-list__item', 'AED')
       .click();
 
-    cy.url()
-      .should('include', '/aed');
+    cy.assertPageUrl('/collections/aed');
 
     cy.get('h1')
       .should('contain.text', 'AED');
@@ -56,8 +54,8 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.contains('.gr-card-rich-product__heading', 'GRÜNER TEPPICH IM AED-EXPO-STIL')
       .click();
 
-    cy.url()
-      .should('include', '/aed-expo-style-gruner-teppich')
+    cy.assertPageUrl('/products/aed-expo-style-gruner-teppich?*');
+    
     cy.get('h1')
       .should('contain.text', 'GRÜNER TEPPICH IM AED-EXPO-STIL');
     cy.get('.gr-price__container')
@@ -92,16 +90,14 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.get('a[href="/pages/unsere-marken"]')
       .click();
 
-    cy.url()
-      .should('include', '/unsere-marken');
+    cy.assertPageUrl('/pages/unsere-marken');
 
     cy.wait(5000);
 
     cy.contains('.gr-brands-list__item', 'Crewsaver')
       .click();
 
-    cy.url()
-      .should('include', '/crewsaver');
+    cy.assertPageUrl('/collections/crewsaver');
 
     cy.get('h1')
       .should('contain.text', 'Crewsaver');
@@ -111,8 +107,8 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.contains('.gr-card-rich-product__heading', 'Crewsaver Seacrewsader 275N 3D feuerhemmende Schwimmweste 83220')
       .click();
 
-    cy.url()
-      .should('include', '/hansen-seacrewsader-275n-3d-fire-retardant-life-jacket-83220')
+    cy.assertPageUrl('/products/hansen-seacrewsader-275n-3d-fire-retardant-life-jacket-83220?variant=46681051627855');
+
     cy.get('h1')
       .should('contain.text', 'Crewsaver Seacrewsader 275N 3D feuerhemmende Schwimmweste 83220');
     cy.get('.gr-price__container')
@@ -190,16 +186,14 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.get('a[href="/pages/unsere-marken"]')
       .click();
 
-    cy.url()
-      .should('include', '/unsere-marken');
+    cy.assertPageUrl('/pages/unsere-marken');
 
     cy.wait(5000);
 
     cy.contains('.gr-brands-list__item', 'Bollé')
       .click();
 
-    cy.url()
-      .should('include', '/bolle');
+    cy.assertPageUrl('/collections/bolle');
 
     cy.get('h1')
       .should('contain.text', 'Bollé');
@@ -209,8 +203,8 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.contains('.gr-card-rich-product__heading', 'Bollé COBRA Schutzbrillen (10 Stück)')
       .click();
 
-    cy.url()
-      .should('include', '/bolle-cobfsps')
+    cy.assertPageUrl('/products/bolle-cobfspsi');
+
     cy.get('h1')
       .should('contain.text', 'Bollé COBRA Schutzbrillen (10 Stück)');
     cy.get('.gr-price__container')
@@ -224,8 +218,9 @@ describe('Adding to the cart, checkout, removing', () => {
 
     cy.get('a[href="/cart"]')
       .click();
-    cy.url()
-      .should('include', '/cart');
+  
+    cy.assertPageUrl('/cart');
+
     cy.contains('h1', 'Dein Warenkorb')
       .should('exist');
     cy.contains('#checkout', 'Auschecken')
@@ -239,7 +234,7 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.get('.gr-cart-footer-subtotal-wrap')
       .should('exist');
 
-      cy.get('.gr-cart-item__del-btn')
+    cy.get('.gr-cart-item__del-btn')
       .click();
 
     cy.get('.gr-cart-item__link')

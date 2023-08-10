@@ -2,7 +2,7 @@
 
 describe('template spec', () => {
   it('should visit home page and check all main elements', () => {
-    cy.visit('https://shopmtn.de/');
+    cy.visit('/');
 
     cy.wait(5000);
 
@@ -22,21 +22,18 @@ describe('template spec', () => {
 
     cy.get('.gr-logo')
       .click();
-    cy.url()
-      .should('include', '/')
+    cy.assertPageUrl('/');
 
     cy.get('.gr-header-btn--account')
       .click();
-    cy.url()
-      .should('include', '/login')
+    cy.assertPageUrl('/account/login');
 
     cy.get('.gr-logo')
       .click();
 
     cy.get('[href="/cart"]')
       .click();
-    cy.url()
-      .should('include', '/cart');
+    cy.assertPageUrl('/cart')
 
     cy.get('.gr-logo')
       .click();
@@ -73,8 +70,7 @@ describe('template spec', () => {
     cy.contains('.gr-btn', 'Zum Angebot')
       .should('exist')
       .click();
-    cy.url()
-      .should('include', '/collections');
+    cy.assertPageUrl('/collections/all');
 
     cy.get('.gr-logo')
       .click();

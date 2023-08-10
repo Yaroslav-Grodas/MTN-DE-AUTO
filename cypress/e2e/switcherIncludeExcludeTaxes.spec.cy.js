@@ -4,7 +4,7 @@ describe('switcher taxes', () => {
 
   beforeEach(() => {
 
-    cy.visit('https://shopmtn.de/');
+    cy.visit('/');
 
     cy.wait(5000);
 
@@ -22,16 +22,14 @@ describe('switcher taxes', () => {
     cy.contains('.gr-header-menu__link', 'Marken')
       .click();
       
-    cy.url()
-      .should('include', '/unsere-marken');
+    cy.assertPageUrl('/pages/unsere-marken');
 
     cy.wait(5000);
 
     cy.contains('.gr-brands-list__item', 'Blaklader')
       .click();
 
-    cy.url()
-      .should('include', '/blaklader');
+    cy.assertPageUrl('/collections/blaklader');
 
     cy.get('h1')
       .should('contain.text', 'Blåkläder');
@@ -41,8 +39,7 @@ describe('switcher taxes', () => {
     cy.contains('.gr-card-rich-product__heading', 'Blåkläder Winterparka')
       .click();
 
-    cy.url()
-      .should('include', '/blaklader-winter-parka')
+    cy.assertPageUrl('/products/blaklader-winter-parka?variant=43799102652582')
     cy.get('h1')
       .should('contain.text', 'Blåkläder Winterparka');
     cy.get('.gr-price__container')
@@ -92,16 +89,14 @@ describe('switcher taxes', () => {
     cy.contains('.gr-header-menu__link', 'Marken')
       .click();
       
-    cy.url()
-      .should('include', '/unsere-marken');
+    cy.assertPageUrl('/pages/unsere-marken');
 
     cy.wait(5000);
 
     cy.contains('.gr-brands-list__item', 'Edelweiss')
       .click();
 
-    cy.url()
-      .should('include', '/edelweiss');
+    cy.assertPageUrl('/collections/edelweiss');
 
     cy.get('h1')
       .should('contain.text', 'Edelweiss');
@@ -111,8 +106,7 @@ describe('switcher taxes', () => {
     cy.contains('.gr-card-rich-product__heading', 'EDELWEISS Alukarabiner TOP straight gate')
       .click();
 
-    cy.url()
-      .should('include', '/edelweiss-alukarabiner-top-straight-gate')
+    cy.assertPageUrl('/products/edelweiss-alukarabiner-top-straight-gate?variant=43918631338150')
     cy.get('h1')
       .should('contain.text', 'EDELWEISS Alukarabiner TOP straight gate');
     cy.get('.gr-price__container')
@@ -162,16 +156,14 @@ describe('switcher taxes', () => {
     cy.contains('.gr-header-menu__link', 'Marken')
       .click();
       
-    cy.url()
-      .should('include', '/unsere-marken');
+    cy.assertPageUrl('/pages/unsere-marken');
 
     cy.wait(5000);
 
     cy.contains('.gr-brands-list__item', 'Petzl')
       .click();
 
-    cy.url()
-      .should('include', '/petzl');
+    cy.assertPageUrl('/collections/petzl');
 
     cy.get('h1')
       .should('contain.text', 'Petzl');
@@ -181,8 +173,7 @@ describe('switcher taxes', () => {
     cy.contains('.gr-card-rich-product__heading', 'Petzl AVAO® BOD FAST Auffang- und Haltegurt')
       .click();
 
-    cy.url()
-      .should('include', '/petzl-avao-bod-fast')
+    cy.assertPageUrl('/products/petzl-avao-bod-fast?variant=40328900673702')
     cy.get('h1')
       .should('contain.text', 'Petzl AVAO® BOD FAST Auffang- und Haltegurt');
     cy.get('.gr-price__container')

@@ -4,7 +4,7 @@ describe('career page, right of withdrawal, packaging notes, payment, data prote
 
   beforeEach(() => {
 
-    cy.visit('https://shopmtn.de/');
+    cy.visit('/');
 
     cy.wait(5000);
 
@@ -23,8 +23,7 @@ describe('career page, right of withdrawal, packaging notes, payment, data prote
     cy.contains('.gr-footer__nav-link', 'KARRIERE')
       .click();
 
-    cy.url()
-      .should('include', '/aktuelle-stellenausschreibungen');
+    cy.assertPageUrl('/pages/aktuelle-stellenausschreibungen');
 
     cy.get('h1')
       .should('contain.text', 'Aktuelle Stellenausschreibungen');
@@ -42,8 +41,7 @@ describe('career page, right of withdrawal, packaging notes, payment, data prote
     cy.contains('.gr-footer__nav-link', 'WIDERRUFSRECHT')
       .click();
 
-    cy.url()
-      .should('include', '/policies/refund-policy');
+    cy.assertPageUrl('/policies/refund-policy');
 
     cy.get('h1')
       .should('contain.text', 'Widerrufsrecht');
@@ -58,8 +56,7 @@ describe('career page, right of withdrawal, packaging notes, payment, data prote
     cy.contains('.gr-footer__nav-link', 'VERPACKUNGSHINWEISE')
       .click();
 
-    cy.url()
-      .should('include', '/verpackungshinweise');
+    cy.assertPageUrl('/pages/verpackungshinweise');
 
     cy.get('h1')
       .should('contain.text', 'Verpackungshinweise');
@@ -73,8 +70,7 @@ describe('career page, right of withdrawal, packaging notes, payment, data prote
     cy.contains('.gr-footer__nav-link', 'ZAHLUNG & VERSAND')
       .click();
 
-    cy.url()
-      .should('include', '/policies/shipping-policy');
+    cy.assertPageUrl('/policies/shipping-policy');
 
     cy.get('h1')
       .should('contain.text', 'Versand');
@@ -88,8 +84,7 @@ describe('career page, right of withdrawal, packaging notes, payment, data prote
     cy.contains('.gr-footer__nav-link', 'DATENSCHUTZERKLÄRUNG')
       .click();
 
-    cy.url()
-      .should('include', '/policies/privacy-policy');
+    cy.assertPageUrl('/policies/privacy-policy');
 
     cy.get('h1')
       .should('contain.text', 'Datenschutzerklärung');
@@ -103,8 +98,7 @@ describe('career page, right of withdrawal, packaging notes, payment, data prote
     cy.contains('.gr-footer__nav-link', 'ALLGEMEINE GESCHÄFTSBEDINGUNGEN')
       .click();
 
-    cy.url()
-      .should('include', '/policies/terms-of-service')
+    cy.assertPageUrl('/policies/terms-of-service');
 
     cy.get('h1')
       .should('contain.text', 'AGB')
@@ -118,8 +112,7 @@ describe('career page, right of withdrawal, packaging notes, payment, data prote
     cy.contains('.gr-footer__nav-link', 'IMPRESSUM')
       .click();
 
-    cy.url()
-      .should('include', '/policies/legal-notice');
+    cy.assertPageUrl('/policies/legal-notice');
 
     cy.get('h1')
       .should('contain.text', 'Impressum');
@@ -133,8 +126,7 @@ describe('career page, right of withdrawal, packaging notes, payment, data prote
     cy.contains('.gr-footer__nav-link', 'ÜBER UNS')
       .click();
 
-    cy.url()
-      .should('include', '/ueber-uns');
+    cy.assertPageUrl('/pages/ueber-uns');
 
     cy.get('h1')
       .should('contain.text', 'Über uns');

@@ -4,7 +4,7 @@ describe('footer login link', () => {
 
   it('should allow user to use footer login ling to login or register account', () => {
 
-    cy.visit('https://shopmtn.de/');
+    cy.visit('/');
 
     cy.wait(5000);
 
@@ -19,8 +19,7 @@ describe('footer login link', () => {
     cy.contains('.gr-footer__nav-link', 'KUNDENKONTO')
       .click();
 
-    cy.url()
-      .should('include', '/login');
+    cy.assertPageUrl('/account/login');
 
     cy.get('h1')
       .should('contain.text', 'Login');
@@ -32,8 +31,7 @@ describe('footer login link', () => {
       .should('exist')
       .click();
 
-    cy.url()
-      .should('include', '/account/register');
+    cy.assertPageUrl('/account/register')
 
     cy.get('h1')
       .should('contain.text', 'Konto erstellen');

@@ -4,7 +4,7 @@ describe('calculate shipping', () => {
 
   beforeEach(() => {
 
-    cy.visit('https://shopmtn.de/');
+    cy.visit('/');
 
     cy.wait(5000);
 
@@ -22,16 +22,14 @@ describe('calculate shipping', () => {
     cy.get('a[href="/pages/unsere-marken"]')
       .click();
 
-    cy.url()
-      .should('include', '/unsere-marken');
+    cy.assertPageUrl('/pages/unsere-marken');
 
     cy.wait(5000);
 
     cy.contains('.gr-brands-list__item', 'Beneca')
       .click();
 
-    cy.url()
-      .should('include', '/beneca');
+    cy.assertPageUrl('/collections/beneca');
 
     cy.get('h1')
       .should('contain.text', 'Beneca');
@@ -68,16 +66,14 @@ describe('calculate shipping', () => {
     cy.get('a[href="/pages/unsere-marken"]')
       .click();
 
-    cy.url()
-      .should('include', '/unsere-marken');
+    cy.assertPageUrl('/pages/unsere-marken');
 
     cy.wait(5000);
 
     cy.contains('.gr-brands-list__item', 'Dunlop')
       .click();
 
-    cy.url()
-      .should('include', '/dunlop');
+    cy.assertPageUrl('/collections/dunlop');;
 
     cy.get('h1')
       .should('contain.text', 'Dunlop');
@@ -114,16 +110,14 @@ describe('calculate shipping', () => {
     cy.get('a[href="/pages/unsere-marken"]')
       .click();
 
-    cy.url()
-      .should('include', '/unsere-marken');
+    cy.assertPageUrl('/pages/unsere-marken');
 
     cy.wait(5000);
 
     cy.contains('.gr-brands-list__item', 'Hansen')
       .click();
 
-    cy.url()
-      .should('include', '/hansen-protection');
+    cy.assertPageUrl('/collections/hansen-protection');
 
     cy.get('h1')
       .should('contain.text', 'Hansen');
@@ -160,16 +154,14 @@ describe('calculate shipping', () => {
     cy.get('a[href="/pages/unsere-marken"]')
       .click();
 
-    cy.url()
-      .should('include', '/unsere-marken');
+    cy.assertPageUrl('/pages/unsere-marken');
 
     cy.wait(5000);
 
     cy.contains('.gr-brands-list__item', 'Safetex')
       .click();
 
-    cy.url()
-      .should('include', '/safetex');
+    cy.assertPageUrl('/collections/safetex');
 
     cy.get('h1')
       .should('contain.text', 'Safetex');
@@ -206,16 +198,14 @@ describe('calculate shipping', () => {
     cy.get('a[href="/pages/unsere-marken"]')
       .click();
 
-    cy.url()
-      .should('include', '/unsere-marken');
+    cy.assertPageUrl('/pages/unsere-marken');
 
     cy.wait(5000);
 
     cy.contains('.gr-brands-list__item', 'Crewsaver')
       .click();
 
-    cy.url()
-      .should('include', '/crewsaver');
+    cy.assertPageUrl('/collections/crewsaver');
 
     cy.get('h1')
       .should('contain.text', 'Crewsaver');

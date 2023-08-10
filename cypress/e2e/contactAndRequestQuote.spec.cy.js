@@ -4,7 +4,7 @@ describe('contact form and request for quote form', () => {
 
   beforeEach(() => {
     
-    cy.visit('https://shopmtn.de/');
+    cy.visit('/');
 
     cy.wait(5000);
 
@@ -22,8 +22,7 @@ describe('contact form and request for quote form', () => {
     cy.contains('.gr-footer__nav-link', 'KONTAKTAUFNAHME')
       .click();
 
-    cy.url()
-      .should('include', '/kontakt');
+    cy.assertPageUrl('/pages/kontakt');
 
     cy.get('h1')
       .should('contain.text', 'Kontakt');
@@ -41,8 +40,7 @@ describe('contact form and request for quote form', () => {
     cy.contains('.gr-footer__nav-link', 'ANGEBOTSANFRAGE')
       .click();
 
-    cy.url()
-      .should('include', '/angebotsanfrage');
+    cy.assertPageUrl('/pages/angebotsanfrage');
 
     cy.get('h1')
       .should('contain.text', 'Angebotsanfrage');

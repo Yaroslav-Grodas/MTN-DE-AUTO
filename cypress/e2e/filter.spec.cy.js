@@ -5,7 +5,7 @@ describe('filter functionality', () => {
 
   beforeEach(() => {
 
-    cy.visit('https://shopmtn.de/');
+    cy.visit('/');
 
     cy.wait(5000);
 

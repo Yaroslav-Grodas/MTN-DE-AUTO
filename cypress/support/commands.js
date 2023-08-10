@@ -31,5 +31,10 @@ Cypress.Commands.add('findByPlaceholder', placeholder => {
   Cypress.Commands.add('saveTextValue', (value) => {
     cy.wrap(value).as('savedTextValue');
   });
+
+Cypress.Commands.add('assertPageUrl', (url) => {
+  cy.url()
+    .should('equal', Cypress.config().baseUrl + url)
+});
   
   

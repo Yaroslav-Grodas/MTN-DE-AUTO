@@ -4,7 +4,7 @@ describe('Increase and decrease quantity functionality', () => {
 
     beforeEach(() => {
 
-      cy.visit('https://shopmtn.de/');
+      cy.visit('/');
 
       cy.wait(5000);
     
@@ -23,16 +23,14 @@ describe('Increase and decrease quantity functionality', () => {
     cy.get('a[href="/pages/unsere-marken"]')
       .click();
 
-    cy.url()
-      .should('include', '/unsere-marken');
+    cy.assertPageUrl('/pages/unsere-marken');
 
     cy.wait(5000);
 
     cy.contains('.gr-brands-list__item', 'Tigrip')
       .click();
 
-    cy.url()
-      .should('include', '/tigrip');
+    cy.assertPageUrl('/collections/tigrip');
 
     cy.get('h1')
       .should('contain.text', 'Tigrip');
@@ -97,16 +95,14 @@ describe('Increase and decrease quantity functionality', () => {
     cy.get('a[href="/pages/unsere-marken"]')
       .click();
 
-    cy.url()
-      .should('include', '/unsere-marken');
+    cy.assertPageUrl('/pages/unsere-marken');
 
     cy.wait(5000);
 
     cy.contains('.gr-brands-list__item', 'Kuzar')
       .click();
 
-    cy.url()
-      .should('include', '/kuzar');
+    cy.assertPageUrl('/collections/kuzar');
 
     cy.get('h1')
       .should('contain.text', 'Kuzar');
@@ -172,16 +168,14 @@ describe('Increase and decrease quantity functionality', () => {
     cy.get('a[href="/pages/unsere-marken"]')
       .click();
 
-    cy.url()
-      .should('include', '/unsere-marken');
+    cy.assertPageUrl('/pages/unsere-marken');
 
     cy.wait(5000);
 
     cy.contains('.gr-brands-list__item', 'Pfaff-silberblau')
       .click();
 
-    cy.url()
-      .should('include', '/pfaff-silberblau');
+    cy.assertPageUrl('/collections/pfaff-silberblau');
 
     cy.get('h1')
       .should('contain.text', 'Pfaff-silberblau');

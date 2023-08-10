@@ -15,7 +15,7 @@ describe('search functionality', () => {
 
   before(() => {
 
-    cy.visit('https://shopmtn.de/');
+    cy.visit('/');
 
     cy.wait(5000);
 
