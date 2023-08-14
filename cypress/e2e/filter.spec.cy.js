@@ -20,7 +20,7 @@ describe('filter functionality', () => {
 
   it('should allow user to filter Brand', () => {
 
-    cy.contains('.gr-header-menu__link', 'Sicherheitsausrüstung & PSAgA')
+    cy.contains('.gr-header-menu__link', 'PSA & Sicherheitsausrüstung')
       .click();
 
     cy.get('#gr-btn-filters-show')
@@ -66,7 +66,7 @@ describe('filter functionality', () => {
 
   it('should allow user to filter Type', () => {
 
-    cy.contains('.gr-header-menu__link', 'Sicherheitsausrüstung & PSAgA')
+    cy.contains('.gr-header-menu__link', 'PSA & Sicherheitsausrüstung')
       .click();
 
     cy.get('#gr-btn-filters-show')
@@ -100,7 +100,7 @@ describe('filter functionality', () => {
 
   it('should allow user to filter Specification', () => {
 
-    cy.contains('.gr-header-menu__link', 'Sicherheitsausrüstung & PSAgA')
+    cy.contains('.gr-header-menu__link', 'PSA & Sicherheitsausrüstung')
       .click();
 
     cy.get('#gr-btn-filters-show')

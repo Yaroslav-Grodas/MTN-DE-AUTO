@@ -44,7 +44,7 @@ describe('template spec', () => {
     cy.get('.gr-header-menu')
       .contains('a', 'Industrietechnik und -maschinen');
     cy.get('.gr-header-menu')
-      .contains('a', 'Sicherheitsausrüstung & PSAgA');
+      .contains('a', 'PSA & Sicherheitsausrüstung');
     cy.get('.gr-header-menu')
       .contains('a', 'Veranstaltungstechnik');
     cy.get('.gr-header-menu')
@@ -67,10 +67,8 @@ describe('template spec', () => {
     cy.contains('h2', 'ÜBER UNS')
       .should('exist');
 
-    cy.contains('.gr-btn', 'Zum Angebot')
+    cy.contains('.gr-btn', 'Individuelles Angebot anfordern')
       .should('exist')
-      .click();
-    cy.assertPageUrl('/collections/all');
 
     cy.get('.gr-logo')
       .click();
