@@ -23,12 +23,16 @@ describe('Increase and decrease quantity functionality', () => {
     cy.get('a[href="/pages/unsere-marken"]')
       .click();
 
+    cy.wait(2000);
+
     cy.assertPageUrl('/pages/unsere-marken');
 
     cy.wait(5000);
 
     cy.contains('.gr-brands-list__item', 'Tigrip')
       .click();
+
+    cy.wait(2000);
 
     cy.assertPageUrl('/collections/tigrip');
 
@@ -39,6 +43,8 @@ describe('Increase and decrease quantity functionality', () => {
 
     cy.contains('.gr-card-rich-product__heading', 'Tigrip® Permanent-Lasthebemagnet TPM')
       .click();
+
+    cy.wait(2000);
 
     cy.get('h1')
       .should('contain.text', 'Tigrip® Permanent-Lasthebemagnet TPM');
@@ -51,6 +57,8 @@ describe('Increase and decrease quantity functionality', () => {
         cy.wait(5000);
         cy.get('a[href="/cart"]').click()
       });
+
+    cy.wait(2000);
 
     cy.get('.gr-cart-item__link')
       .should('contain.text', 'Tigrip® Permanent-Lasthebemagnet TPM');
@@ -95,12 +103,16 @@ describe('Increase and decrease quantity functionality', () => {
     cy.get('a[href="/pages/unsere-marken"]')
       .click();
 
+    cy.wait(2000);
+
     cy.assertPageUrl('/pages/unsere-marken');
 
     cy.wait(5000);
 
     cy.contains('.gr-brands-list__item', 'Kuzar')
       .click();
+
+    cy.wait(2000);
 
     cy.assertPageUrl('/collections/kuzar');
 
@@ -111,6 +123,8 @@ describe('Increase and decrease quantity functionality', () => {
 
     cy.contains('.gr-card-rich-product__heading', 'Kuzar Line Array Lift K-50')
       .click();
+
+    cy.wait(2000);
 
     cy.get('h1')
       .should('contain.text', 'Kuzar Line Array Lift K-50');
@@ -123,6 +137,8 @@ describe('Increase and decrease quantity functionality', () => {
         cy.wait(5000);
         cy.get('a[href="/cart"]').click({force: true})
       });
+
+    cy.wait(2000);
 
     cy.get('.gr-cart-item__link')
       .should('contain.text', 'Kuzar Line Array Lift K-50');
@@ -168,12 +184,16 @@ describe('Increase and decrease quantity functionality', () => {
     cy.get('a[href="/pages/unsere-marken"]')
       .click();
 
+    cy.wait(2000);
+
     cy.assertPageUrl('/pages/unsere-marken');
 
     cy.wait(5000);
 
     cy.contains('.gr-brands-list__item', 'Pfaff-silberblau')
       .click();
+
+    cy.wait(2000);
 
     cy.assertPageUrl('/collections/pfaff-silberblau');
 
@@ -184,6 +204,8 @@ describe('Increase and decrease quantity functionality', () => {
 
     cy.contains('.gr-card-rich-product__heading', 'Pfaff ATEX PROLINE Handgabelhubwagen in Edelstahlausführung (HU 20-115 VATP)')
       .click();
+
+    cy.wait(2000);
 
     cy.get('h1')
       .should('contain.text', 'Pfaff ATEX PROLINE Handgabelhubwagen in Edelstahlausführung (HU 20-115 VATP)');
@@ -196,6 +218,8 @@ describe('Increase and decrease quantity functionality', () => {
         cy.wait(5000);
         cy.get('a[href="/cart"]').click()
       });
+
+    cy.wait(2000);
 
     cy.get('.gr-cart-item__link')
       .should('contain.text', 'Pfaff ATEX PROLINE Handgabelhubwagen in Edelstahlausführung (HU 20-115 VATP)');
