@@ -66,12 +66,16 @@ describe('calculate shipping', () => {
     cy.get('a[href="/pages/unsere-marken"]')
       .click();
 
+    cy.wait(2000);
+
     cy.assertPageUrl('/pages/unsere-marken');
 
     cy.wait(5000);
 
     cy.contains('.gr-brands-list__item', 'Dunlop')
       .click();
+
+    cy.wait(2000);
 
     cy.assertPageUrl('/collections/dunlop');;
 
@@ -83,6 +87,8 @@ describe('calculate shipping', () => {
     cy.contains('.gr-card-rich-product__heading', 'Dunlop Purofort Thermo+ Full Safety')
       .click();
 
+    cy.wait(2000);
+
     cy.get('h1')
       .should('contain.text', 'Dunlop Purofort Thermo+ Full Safety');
 
@@ -90,6 +96,8 @@ describe('calculate shipping', () => {
 
     cy.contains('.gr-summary__heading', 'Versandkostenrechner')
       .click();
+
+    cy.wait(2000);
 
     cy.get('#gr_shipping_calculator_country')
       .select('Belgien');
@@ -99,6 +107,8 @@ describe('calculate shipping', () => {
 
     cy.contains('.gr-shipping-calc__submit', 'Versandkosten berechnen')
       .click();
+
+    cy.wait(2000);
 
     cy.get('.gr-shipping-calc__response')
       .should('exist');
