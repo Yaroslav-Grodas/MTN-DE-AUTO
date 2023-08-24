@@ -61,7 +61,7 @@ describe('calculate shipping', () => {
      
   });
 
-  it('should allow user to calculate shipping of the product SECOND case', () => {
+  it.only('should allow user to calculate shipping of the product SECOND case', () => {
 
     cy.get('a[href="/pages/unsere-marken"]')
       .click();
@@ -72,25 +72,25 @@ describe('calculate shipping', () => {
 
     cy.wait(5000);
 
-    cy.contains('.gr-brands-list__item', 'Dunlop')
+    cy.contains('.gr-brands-list__item', 'Edelweiss')
       .click();
 
     cy.wait(2000);
 
-    cy.assertPageUrl('/collections/dunlop');;
+    cy.assertPageUrl('/collections/edelweiss');;
 
     cy.get('h1')
-      .should('contain.text', 'Dunlop');
+      .should('contain.text', 'Edelweiss');
 
     cy.wait(10000);
 
-    cy.contains('.gr-card-rich-product__heading', 'Dunlop Purofort Thermo+ Full Safety')
+    cy.contains('.gr-card-rich-product__heading', 'EDELWEISS Alukarabiner O3 oval trilock')
       .click();
 
     cy.wait(2000);
 
     cy.get('h1')
-      .should('contain.text', 'Dunlop Purofort Thermo+ Full Safety');
+      .should('contain.text', 'EDELWEISS Alukarabiner O3 oval trilock');
 
     cy.wait(2000);
 

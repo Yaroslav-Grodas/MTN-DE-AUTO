@@ -13,7 +13,7 @@ describe('blog page', () => {
     cy.get('[aria-label="Close form 3"]')
       .click();
 
-    cy.contains('.gr-footer__nav-link', 'BLOG POSTS')
+    cy.contains('.gr-footer__nav-link', 'BLOGS')
       .click();
 
     cy.assertPageUrl('/blogs/beitraege');

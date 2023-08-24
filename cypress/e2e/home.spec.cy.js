@@ -104,7 +104,7 @@ describe('template spec', () => {
     cy.get('.gr-footer__navigation')
       .contains('a', 'KUNDENKONTO');
     cy.get('.gr-footer__navigation')
-      .contains('a', 'BLOG POSTS');
+      .contains('a', 'BLOGS');
     cy.get('.gr-footer__navigation')
       .contains('a', 'FEEDBACK');
     cy.get('.gr-footer__navigation')

@@ -181,7 +181,7 @@ describe('Adding to the cart, checkout, removing', () => {
 
   });
 
-  it('should remove product from the cart', () => {
+  it.only('should remove product from the cart', () => {
 
     cy.get('a[href="/pages/unsere-marken"]')
       .click();
@@ -190,23 +190,23 @@ describe('Adding to the cart, checkout, removing', () => {
 
     cy.wait(5000);
 
-    cy.contains('.gr-brands-list__item', 'Bollé')
+    cy.contains('.gr-brands-list__item', 'Beneca')
       .click();
 
-    cy.assertPageUrl('/collections/bolle');
+    cy.assertPageUrl('/collections/beneca');
 
     cy.get('h1')
-      .should('contain.text', 'Bollé');
+      .should('contain.text', 'Beneca');
 
     cy.wait(10000);
 
-    cy.contains('.gr-card-rich-product__heading', 'Bollé COBRA Schutzbrillen (10 Stück)')
+    cy.contains('.gr-card-rich-product__heading', 'Beneca 35 mm Spanngurt')
       .click();
 
-    cy.assertPageUrl('/products/bolle-cobfspsi');
+    cy.assertPageUrl('/products/beneca-spanngurt-35mm?variant=40567298228390');
 
     cy.get('h1')
-      .should('contain.text', 'Bollé COBRA Schutzbrillen (10 Stück)');
+      .should('contain.text', 'Beneca 35 mm Spanngurt');
     cy.get('.gr-price__container')
       .should('exist');
 
@@ -226,7 +226,7 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.contains('#checkout', 'Auschecken')
       .should('exist');
     cy.get('.shopify-section')
-      .contains('Bollé COBRA Schutzbrillen (10 Stück)');
+      .contains('Beneca 35 mm Spanngurt');
     cy.contains('.gr-link', 'Weiter shoppen')
       .should('exist');
     cy.get('.cart__dynamic-checkout-buttons')
