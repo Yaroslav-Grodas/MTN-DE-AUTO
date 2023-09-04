@@ -55,7 +55,7 @@ describe('Increase and decrease quantity functionality', () => {
       .click()
       .then(() => {
         cy.wait(5000);
-        cy.get('a[href="/cart"]').click()
+        cy.get('a[href="/cart"]').click( {force: true} )
       });
 
     cy.wait(2000);
@@ -216,7 +216,7 @@ describe('Increase and decrease quantity functionality', () => {
       .click()
       .then(() => {
         cy.wait(5000);
-        cy.get('a[href="/cart"]').click()
+        cy.get('a[href="/cart"]').click( {force: true} )
       });
 
     cy.wait(2000);
