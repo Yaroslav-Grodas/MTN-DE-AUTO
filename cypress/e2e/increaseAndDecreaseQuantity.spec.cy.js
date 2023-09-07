@@ -11,10 +11,10 @@ describe('Increase and decrease quantity functionality', () => {
       cy.contains('.needsclick', 'CONTINUE TO MTN SHOP DE')
         .click();
     
-      cy.wait(20000);
+      /*cy.wait(20000);
     
       cy.get('[aria-label="Close form 3"]')
-        .click();  
+        .click();*/  
     });
 
   it('should allow user to increase and decrease quantity FIRST PRODUCT', () => {

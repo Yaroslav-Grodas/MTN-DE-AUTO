@@ -9,10 +9,10 @@ describe('template spec', () => {
     cy.contains('.needsclick', 'CONTINUE TO MTN SHOP DE')
       .click();
 
-    cy.wait(20000);
+    /*cy.wait(20000);
 
     cy.get('[aria-label="Close form 3"]')
-      .click();
+      .click();*/
 
     cy.get('.gr-announcement-bar__wrapper')
       .contains('Sie möchten ein individuelles Angebot? Hier klicken & Anfrage senden. ');

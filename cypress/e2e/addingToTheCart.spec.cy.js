@@ -14,10 +14,10 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.contains('.needsclick', 'CONTINUE TO MTN SHOP DE')
       .click();
     
-    cy.wait(20000);
+    /*cy.wait(20000);
     
     cy.get('[aria-label="Close form 3"]')
-      .click();  
+      .click();*/  
   });
 
   it('should check that cart is empty', () => {
@@ -181,7 +181,7 @@ describe('Adding to the cart, checkout, removing', () => {
 
   });
 
-  it.only('should remove product from the cart', () => {
+  it('should remove product from the cart', () => {
 
     cy.get('a[href="/pages/unsere-marken"]')
       .click();

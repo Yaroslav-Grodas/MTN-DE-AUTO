@@ -11,10 +11,10 @@ describe('calculate shipping', () => {
     cy.contains('.needsclick', 'CONTINUE TO MTN SHOP DE')
       .click();
 
-    cy.wait(20000);
+    /*cy.wait(20000);
 
     cy.get('[aria-label="Close form 3"]')
-      .click();
+      .click();*/
   });  
 
   it('should allow user to calculate shipping of the product FIRST case', () => {
@@ -61,7 +61,7 @@ describe('calculate shipping', () => {
      
   });
 
-  it.only('should allow user to calculate shipping of the product SECOND case', () => {
+  it('should allow user to calculate shipping of the product SECOND case', () => {
 
     cy.get('a[href="/pages/unsere-marken"]')
       .click();

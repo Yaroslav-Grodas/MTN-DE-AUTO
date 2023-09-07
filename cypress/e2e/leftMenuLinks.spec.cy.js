@@ -11,10 +11,10 @@ describe('career page, right of withdrawal, packaging notes, payment, data prote
     cy.contains('.needsclick', 'CONTINUE TO MTN SHOP DE')
       .click();
 
-    cy.wait(20000);
+    /*cy.wait(20000);
 
     cy.get('[aria-label="Close form 3"]')
-      .click();
+      .click();*/
 
   });
 
