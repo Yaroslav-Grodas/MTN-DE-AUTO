@@ -8,7 +8,7 @@ describe('search functionality', () => {
     nameThird: 'Kuzar Line Array Hängepunkt Aufsatz AGR-1',
     nameFourth: 'CM Birnenglied', 
     nameFifth: 'Blåkläder Softshell Jacke 4749',
-    nameSixth: 'KONG - Riggingplatte 4RIG - orange', 
+    nameSixth: 'KONG - Rundschlinge ARO SLING DYNEEMA', 
     nameSeventh: 'Tourslider Kettenzuggleiter',
     nameEighth: 'Yale RLSP Ratschlastspanner', 
   }
