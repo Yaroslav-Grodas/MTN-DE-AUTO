@@ -33,6 +33,8 @@ describe('search functionality', () => {
     cy.get('#Search-In-Modal')
       .type(product.nameFirst);
 
+    cy.wait(2000);
+
     cy.get('[data-js="productTitle"]')
       .should('contain', product.nameFirst)
       .click();
@@ -54,6 +56,8 @@ describe('search functionality', () => {
     
     cy.get('#Search-In-Modal')
       .type(product.nameSecond);
+
+    cy.wait(2000);
 
     cy.get('[data-js="productTitle"]')
       .should('contain', product.nameSecond)
@@ -77,6 +81,8 @@ describe('search functionality', () => {
     cy.get('#Search-In-Modal')
       .type(product.nameThird);
 
+    cy.wait(2000);
+
     cy.get('.gr-link')
       .contains(product.nameThird)
       .click();
@@ -99,6 +105,8 @@ describe('search functionality', () => {
     cy.get('#Search-In-Modal')
       .type(product.nameFourth);
 
+    cy.wait(2000);
+
     cy.get('[data-js="productTitle"]')
       .should('contain', product.nameFourth)
       .click();
@@ -119,6 +127,8 @@ describe('search functionality', () => {
 
     cy.get('#Search-In-Modal')
       .type(product.nameFifth);
+
+    cy.wait(2000);
 
     cy.get('[data-js="productTitle"]')
       .should('contain', product.nameFifth)
@@ -142,6 +152,8 @@ describe('search functionality', () => {
     cy.get('#Search-In-Modal')
       .type(product.nameSixth);
 
+    cy.wait(2000);
+
     cy.get('.gr-link')
       .contains(product.nameSixth)
       .click();
@@ -164,6 +176,8 @@ describe('search functionality', () => {
     cy.get('#Search-In-Modal')
       .type(product.nameSeventh);
 
+    cy.wait(2000);
+
     cy.get('.gr-link')
       .contains(product.nameSeventh)
       .click();
@@ -185,6 +199,8 @@ describe('search functionality', () => {
 
     cy.get('#Search-In-Modal')
       .type(product.nameEighth);
+
+    cy.wait(2000);
 
     cy.get('.gr-link')
       .contains(product.nameEighth)
