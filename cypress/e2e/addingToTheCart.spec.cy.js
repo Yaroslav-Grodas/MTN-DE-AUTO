@@ -25,6 +25,8 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.get('a[href="/cart"]')
       .click();
 
+    cy.wait(2000);
+
     cy.get('h1')
       .should('contain.text', 'Ihr Warenkorb ist leer');
 
@@ -54,6 +56,8 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.contains('.gr-card-rich-product__heading', 'GRÜNER TEPPICH IM AED-EXPO-STIL')
       .click();
 
+    cy.wait(2000);
+
     cy.assertPageUrl('/products/aed-expo-style-gruner-teppich?variant=46882625651023');
     
     cy.get('h1')
@@ -64,11 +68,14 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.get('.product-form__submit')
       .click();
 
+    cy.wait(2000);
+
     cy.get('.gr-count-bubble')
       .should('exist');
 
     cy.get('a[href="/cart"]')
       .click();
+    cy.wait(2000);
     cy.url()
       .should('include', '/cart');
     cy.contains('h1', 'Dein Warenkorb')
@@ -97,6 +104,8 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.contains('.gr-brands-list__item', 'Crewsaver')
       .click();
 
+    cy.wait(2000);
+
     cy.assertPageUrl('/collections/crewsaver');
 
     cy.get('h1')
@@ -106,6 +115,8 @@ describe('Adding to the cart, checkout, removing', () => {
 
     cy.contains('.gr-card-rich-product__heading', 'Crewsaver Seacrewsader 275N 3D feuerhemmende Schwimmweste 83220')
       .click();
+
+    cy.wait(2000);
 
     cy.assertPageUrl('/products/hansen-seacrewsader-275n-3d-fire-retardant-life-jacket-83220?variant=46681051627855');
 
@@ -161,6 +172,8 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.get('#checkout')
       .click();
 
+    cy.wait(2000);
+
     cy.url()
       .should('include', '/checkouts');
 
@@ -193,6 +206,8 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.contains('.gr-brands-list__item', 'Beneca')
       .click();
 
+    cy.wait(2000);
+
     cy.assertPageUrl('/collections/beneca');
 
     cy.get('h1')
@@ -202,6 +217,8 @@ describe('Adding to the cart, checkout, removing', () => {
 
     cy.contains('.gr-card-rich-product__heading', 'Beneca 35 mm Spanngurt')
       .click();
+
+    cy.wait(2000);
 
     cy.assertPageUrl('/products/beneca-spanngurt-35mm?variant=40567298228390');
 
@@ -213,11 +230,15 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.get('.product-form__submit')
       .click();
 
+    cy.wait(2000);
+
     cy.get('.gr-count-bubble')
       .should('exist');
 
     cy.get('a[href="/cart"]')
       .click();
+
+    cy.wait(2000);
   
     cy.assertPageUrl('/cart');
 
@@ -236,6 +257,8 @@ describe('Adding to the cart, checkout, removing', () => {
 
     cy.get('.gr-cart-item__del-btn')
       .click();
+
+    cy.wait(2000);
 
     cy.get('.gr-cart-item__link')
       .should('not.exist');
