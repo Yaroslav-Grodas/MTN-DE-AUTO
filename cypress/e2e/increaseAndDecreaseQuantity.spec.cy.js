@@ -131,7 +131,7 @@ describe('Increase and decrease quantity functionality', () => {
 
     cy.wait(2000);
 
-    cy.contains('.product-form__submit', 'In den Warenkorb legen')
+    cy.contains('.product-form__submit', 'In den Warenkorb')
       .click()
       .then(() => {
         cy.wait(5000);
