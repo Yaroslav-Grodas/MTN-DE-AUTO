@@ -114,7 +114,7 @@ describe('template spec', () => {
   
     cy.get('.gr-footer__actions')
       .find('.gr-footer__title')
-      .should('contain.text', 'NEWSLETTER');
+      .should('contain.text', 'FOLGEN SIE UNS AUF SOCIAL MEDIA!');
 
     cy.get('.gr-footer__actions')
       .find('.klaviyo_form_trigger')
