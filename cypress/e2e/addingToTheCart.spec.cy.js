@@ -36,7 +36,7 @@ describe('Adding to the cart, checkout, removing', () => {
 
   it('should add product to the cart', () => {
 
-    cy.get('a[href="/pages/unsere-marken"]')
+    cy.contains('.gr-header-menu__link', 'Marken')
       .click();
 
     cy.assertPageUrl('/pages/unsere-marken');
@@ -94,7 +94,7 @@ describe('Adding to the cart, checkout, removing', () => {
 
   it('should proceed to checkout', () => {
 
-    cy.get('a[href="/pages/unsere-marken"]')
+    cy.contains('.gr-header-menu__link', 'Marken')
       .click();
 
     cy.assertPageUrl('/pages/unsere-marken');
@@ -196,7 +196,7 @@ describe('Adding to the cart, checkout, removing', () => {
 
   it('should remove product from the cart', () => {
 
-    cy.get('a[href="/pages/unsere-marken"]')
+    cy.contains('.gr-header-menu__link', 'Marken')
       .click();
 
     cy.assertPageUrl('/pages/unsere-marken');

@@ -19,7 +19,7 @@ describe('calculate shipping', () => {
 
   it('should allow user to calculate shipping of the product FIRST case', () => {
 
-    cy.get('a[href="/pages/unsere-marken"]')
+    cy.contains('.gr-header-menu__link', 'Marken')
       .click();
 
     cy.assertPageUrl('/pages/unsere-marken');
@@ -63,7 +63,7 @@ describe('calculate shipping', () => {
 
   it('should allow user to calculate shipping of the product SECOND case', () => {
 
-    cy.get('a[href="/pages/unsere-marken"]')
+    cy.contains('.gr-header-menu__link', 'Marken')
       .click();
 
     cy.wait(2000);
@@ -117,7 +117,7 @@ describe('calculate shipping', () => {
 
   it('should allow user to calculate shipping of the product THIRD case', () => {
 
-    cy.get('a[href="/pages/unsere-marken"]')
+    cy.contains('.gr-header-menu__link', 'Marken')
       .click();
 
     cy.assertPageUrl('/pages/unsere-marken');
@@ -161,7 +161,7 @@ describe('calculate shipping', () => {
 
   it('should allow user to calculate shipping of the product FOURTH case', () => {
 
-    cy.get('a[href="/pages/unsere-marken"]')
+    cy.contains('.gr-header-menu__link', 'Marken')
       .click();
 
     cy.assertPageUrl('/pages/unsere-marken');
@@ -205,7 +205,7 @@ describe('calculate shipping', () => {
 
   it('negative scenarios in the shipping calculation', () => {
 
-    cy.get('a[href="/pages/unsere-marken"]')
+    cy.contains('.gr-header-menu__link', 'Marken')
       .click();
 
     cy.assertPageUrl('/pages/unsere-marken');

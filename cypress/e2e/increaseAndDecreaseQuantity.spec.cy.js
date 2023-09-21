@@ -20,7 +20,7 @@ describe('Increase and decrease quantity functionality', () => {
   it('should allow user to increase and decrease quantity FIRST PRODUCT', () => {
     
 
-    cy.get('a[href="/pages/unsere-marken"]')
+    cy.contains('.gr-header-menu__link', 'Marken')
       .click();
 
     cy.wait(2000);
@@ -100,7 +100,7 @@ describe('Increase and decrease quantity functionality', () => {
   });
 
   it('should allow user to increase and decrease quantity SECOND PRODUCT', () => {
-    cy.get('a[href="/pages/unsere-marken"]')
+    cy.contains('.gr-header-menu__link', 'Marken')
       .click();
 
     cy.wait(2000);
@@ -181,7 +181,7 @@ describe('Increase and decrease quantity functionality', () => {
 
   it('should allow user to increase and decrease quantity THIRD PRODUCT', () => {
 
-    cy.get('a[href="/pages/unsere-marken"]')
+    cy.contains('.gr-header-menu__link', 'Marken')
       .click();
 
     cy.wait(2000);
