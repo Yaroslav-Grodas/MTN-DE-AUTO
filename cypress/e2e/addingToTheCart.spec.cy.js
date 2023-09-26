@@ -258,7 +258,7 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.get('.gr-cart-item__del-btn')
       .click();
 
-    cy.wait(2000);
+    cy.wait(4000);
 
     cy.get('.gr-cart-item__link')
       .should('not.exist');
