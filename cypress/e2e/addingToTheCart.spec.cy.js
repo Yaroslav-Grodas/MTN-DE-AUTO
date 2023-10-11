@@ -22,15 +22,15 @@ describe('Adding to the cart, checkout, removing', () => {
 
   it('should check that cart is empty', () => {
 
-    cy.get('a[href="/cart"]')
+    cy.get('.gr-icon-cart-empty')
       .click();
 
     cy.wait(2000);
 
-    cy.get('h1')
+    cy.get('h2')
       .should('contain.text', 'Ihr Warenkorb ist leer');
 
-    cy.contains('.gr-link', 'Weiter shoppen')
+    cy.contains('.gr-btn--outline', 'Weiter shoppen')
       .should('exist');
   });
 
@@ -73,7 +73,9 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.get('.gr-count-bubble')
       .should('exist');
 
-    cy.get('a[href="/cart"]')
+    cy.wait(2000);
+
+    cy.contains('.gr-cart__checkout-btn', 'Warenkorb ansehen')
       .click();
     cy.wait(2000);
     cy.url()
@@ -158,7 +160,8 @@ describe('Adding to the cart, checkout, removing', () => {
       // Move the following part outside of the 'then' block
       cy.get('.product-form__submit').click().then(() => {
         cy.wait(5000);
-        cy.get('a[href="/cart"]').click().then(() => {
+        cy.contains('.gr-cart__checkout-btn', 'Warenkorb ansehen')
+          .click().then(() => {
           cy.get('@savedTextValue').then((savedValue) => {
             cy.get('span.price--end-include-tax')
               .invoke('text')
@@ -235,7 +238,9 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.get('.gr-count-bubble')
       .should('exist');
 
-    cy.get('a[href="/cart"]')
+    cy.wait(2000);
+
+    cy.contains('.gr-cart__checkout-btn', 'Warenkorb ansehen')
       .click();
 
     cy.wait(2000);
@@ -255,8 +260,9 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.get('.gr-cart-footer-subtotal-wrap')
       .should('exist');
 
-    cy.get('.gr-cart-item__del-btn')
-      .click();
+      /*cy.get('.gr-cart-item__del-btn').first().click( {force: true} );*/
+
+    cy.get('button[name="minus"]').last().click( {force: true} ); 
 
     cy.wait(4000);
 

@@ -31,9 +31,12 @@ describe('template spec', () => {
     cy.get('.gr-logo')
       .click();
 
-    cy.get('[href="/cart"]')
+    cy.get('.gr-icon-cart-empty')
       .click();
-    cy.assertPageUrl('/cart')
+    cy.get('[aria-label="Dein Warenkorb"]')
+      .should('exist');
+    cy.get('.gr-drawer__close')
+      .click();  
 
     cy.get('.gr-logo')
       .click();
@@ -44,7 +47,7 @@ describe('template spec', () => {
     cy.get('.gr-header-menu')
       .contains('a', 'Industrietechnik und -maschinen');
     cy.get('.gr-header-menu')
-      .contains('a', 'PSA & Sicherheitsausrüstung');
+      .contains('a', 'PSA und Sicherheitsausrüstung');
     cy.get('.gr-header-menu')
       .contains('a', 'Veranstaltungstechnik');
     cy.get('.gr-header-menu')
