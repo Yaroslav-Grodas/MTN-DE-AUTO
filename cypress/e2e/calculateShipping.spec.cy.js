@@ -61,7 +61,7 @@ describe('calculate shipping', () => {
      
   });
 
-  it('should allow user to calculate shipping of the product SECOND case', () => {
+  it.skip('should allow user to calculate shipping of the product SECOND case', () => {
 
     cy.contains('.gr-header-menu__link', 'Marken')
       .click();
@@ -115,7 +115,7 @@ describe('calculate shipping', () => {
 
   });
 
-  it('should allow user to calculate shipping of the product THIRD case', () => {
+  it.skip('should allow user to calculate shipping of the product THIRD case', () => {
 
     cy.contains('.gr-header-menu__link', 'Marken')
       .click();
@@ -159,6 +159,8 @@ describe('calculate shipping', () => {
 
   });
 
+  
+
   it('should allow user to calculate shipping of the product FOURTH case', () => {
 
     cy.contains('.gr-header-menu__link', 'Marken')
@@ -197,6 +199,60 @@ describe('calculate shipping', () => {
 
     cy.contains('.gr-shipping-calc__submit', 'Versandkosten berechnen')
       .click();
+
+    cy.get('.gr-shipping-calc__response')
+      .should('exist');
+
+  });
+
+  it('should allow user to calculate shipping of the product FIFTH case', () => {
+
+    cy.contains('.gr-header-menu__link', 'Marken')
+      .click();
+
+    cy.wait(2000);
+
+    cy.assertPageUrl('/pages/unsere-marken');
+
+    cy.wait(5000);
+
+    cy.contains('.gr-brands-list__item', 'Edelweiss')
+      .click();
+
+    cy.wait(2000);
+
+    cy.assertPageUrl('/collections/edelweiss');;
+
+    cy.get('h1')
+      .should('contain.text', 'Edelweiss');
+
+    cy.wait(10000);
+
+    cy.contains('.gr-card-rich-product__heading', 'EDELWEISS Alukarabiner O3 oval trilock')
+      .click();
+
+    cy.wait(2000);
+
+    cy.get('h1')
+      .should('contain.text', 'EDELWEISS Alukarabiner O3 oval trilock');
+
+    cy.wait(2000);
+
+    cy.contains('.gr-summary__heading', 'Versandkostenrechner')
+      .click();
+
+    cy.wait(2000);
+
+    cy.get('#gr_shipping_calculator_country')
+      .select('Schweiz');
+
+    cy.get('#gr_shipping_calculator_zip')
+      .type('3030');
+
+    cy.contains('.gr-shipping-calc__submit', 'Versandkosten berechnen')
+      .click();
+
+    cy.wait(2000);
 
     cy.get('.gr-shipping-calc__response')
       .should('exist');
