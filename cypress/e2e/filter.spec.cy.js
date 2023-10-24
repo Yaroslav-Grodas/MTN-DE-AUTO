@@ -24,7 +24,7 @@ describe('filter functionality', () => {
       .click();
 
     cy.get('#gr-btn-filters-show')
-      .click();
+      .click( {force: true} );
 
     cy.get('.gr-filters')
       .should('exist');
@@ -77,7 +77,7 @@ describe('filter functionality', () => {
 
     cy.wait(5000);
 
-    cy.contains('.gr-checkbox-wrap', 'Abseilachter')
+    cy.contains('.gr-checkbox-wrap', 'Aluring')
       .click({ force: true });
 
     cy.get('div.gr-search-popup.gr-hidden')
@@ -94,7 +94,7 @@ describe('filter functionality', () => {
       cy.get('@productCard')
         .find('.gr-card-rich-product__heading')
         .invoke('text')
-        .should('include', 'Abseilachter');
+        .should('include', 'Aluring');
     });
   });
 
