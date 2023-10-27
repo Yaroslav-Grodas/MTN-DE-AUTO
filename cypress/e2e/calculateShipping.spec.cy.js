@@ -216,25 +216,25 @@ describe('calculate shipping', () => {
 
     cy.wait(5000);
 
-    cy.contains('.gr-brands-list__item', 'Edelweiss')
+    cy.contains('.gr-brands-list__item', 'Klotz')
       .click();
 
     cy.wait(2000);
 
-    cy.assertPageUrl('/collections/edelweiss');;
+    cy.assertPageUrl('/collections/klotz');;
 
     cy.get('h1')
-      .should('contain.text', 'Edelweiss');
+      .should('contain.text', 'Klotz');
 
     cy.wait(10000);
 
-    cy.contains('.gr-card-rich-product__heading', 'EDELWEISS Alukarabiner O3 oval trilock')
+    cy.contains('.gr-card-rich-product__heading', 'Klotz HDMI 2.1 AOC Drum - active optical cable armiert - stecker mit schutzkappen')
       .click();
 
     cy.wait(2000);
 
     cy.get('h1')
-      .should('contain.text', 'EDELWEISS Alukarabiner O3 oval trilock');
+      .should('contain.text', 'Klotz HDMI 2.1 AOC Drum - active optical cable armiert - stecker mit schutzkappen');
 
     cy.wait(2000);
 

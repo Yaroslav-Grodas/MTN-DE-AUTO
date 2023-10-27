@@ -93,22 +93,22 @@ describe('switcher taxes', () => {
 
     cy.wait(5000);
 
-    cy.contains('.gr-brands-list__item', 'Edelweiss')
+    cy.contains('.gr-brands-list__item', 'Hansen')
       .click();
 
-    cy.assertPageUrl('/collections/edelweiss');
+    cy.assertPageUrl('/collections/hansen-protection');
 
     cy.get('h1')
-      .should('contain.text', 'Edelweiss');
+      .should('contain.text', 'Hansen Protection');
 
     cy.wait(10000);
 
-    cy.contains('.gr-card-rich-product__heading', 'EDELWEISS Alukarabiner TOP straight gate')
+    cy.contains('.gr-card-rich-product__heading', 'Hansen Protection SeaBreeze CTV Arbeitsanzug mit Socken 85386 (50 Stück)')
       .click();
 
-    cy.assertPageUrl('/products/edelweiss-alukarabiner-top-straight-gate?variant=43918631338150')
+    cy.assertPageUrl('/products/hansen-seabreeze-ctv-work-suit-with-socks-85386-50-pieces?variant=46681049956687')
     cy.get('h1')
-      .should('contain.text', 'EDELWEISS Alukarabiner TOP straight gate');
+      .should('contain.text', 'Hansen Protection SeaBreeze CTV Arbeitsanzug mit Socken 85386 (50 Stück)');
     cy.get('.gr-price__container')
       .should('exist');
 
