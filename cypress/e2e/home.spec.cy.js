@@ -140,7 +140,7 @@ describe('template spec', () => {
       .should('exist');
     cy.get('a[href="https://twitter.com/mtnshopde"]')
       .should('exist');
-    cy.get('a[href="https://www.youtube.com/channel/UCgO36nA9fDa5kUotQLqvfrw"]')
+    cy.get('a[href="https://www.youtube.com/@mtnshopde79"]')
       .should('exist');
     cy.get('a[href="mailto:info@shopmtn.de"]')
       .should('exist');
