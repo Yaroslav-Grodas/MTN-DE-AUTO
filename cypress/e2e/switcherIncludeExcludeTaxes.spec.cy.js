@@ -26,22 +26,22 @@ describe('switcher taxes', () => {
 
     cy.wait(5000);
 
-    cy.contains('.gr-brands-list__item', 'Blaklader')
+    cy.contains('.gr-brands-list__item', 'Grabo')
       .click();
 
-    cy.assertPageUrl('/collections/blaklader');
+    cy.assertPageUrl('/collections/grabo');
 
     cy.get('h1')
-      .should('contain.text', 'Blåkläder');
+      .should('contain.text', 'GRABO - Elektro-Vakuumheber');
 
     cy.wait(10000);
 
-    cy.contains('.gr-card-rich-product__heading', 'Blåkläder Winterparka')
+    cy.contains('.gr-card-rich-product__heading', 'GRABO PRO Elektro-Vakuumheber')
       .click();
 
-    cy.assertPageUrl('/products/blaklader-winter-parka?variant=43799102652582')
+    cy.assertPageUrl('/products/grabo-pro-lifter-20')
     cy.get('h1')
-      .should('contain.text', 'Blåkläder Winterparka');
+      .should('contain.text', 'GRABO PRO Elektro-Vakuumheber');
     cy.get('.gr-price__container')
       .should('exist');
 
