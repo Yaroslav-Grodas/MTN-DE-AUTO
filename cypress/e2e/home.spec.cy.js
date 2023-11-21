@@ -15,7 +15,7 @@ describe('template spec', () => {
       .click();*/
 
     cy.get('.gr-announcement-bar__wrapper')
-      .contains('Sie möchten ein individuelles Angebot? Hier klicken & Anfrage senden. ');
+      .contains('Sie möchten ein individuelles Angebot? Hier klicken und Anfrage senden. ');
 
     cy.get('.gr-search-form')
       .should('exist');
