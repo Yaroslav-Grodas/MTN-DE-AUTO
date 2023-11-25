@@ -115,7 +115,7 @@ describe('filter functionality', () => {
       .find('button[data-filter-index="3"]')
       .click();
 
-    cy.contains('.gr-checkbox-wrap', 'Bremspaltte')
+    cy.contains('.gr-checkbox-wrap', 'Abseilachter')
       .click({ force: true });
 
     cy.wait(5000)
@@ -134,7 +134,7 @@ describe('filter functionality', () => {
         cy.get('@productCard')
           .find('.gr-card-rich-product__heading')
           .invoke('text')
-          .should('include', 'Bremspaltte');
+          .should('include', 'Abseilachter');
     });
   });
 

@@ -84,8 +84,8 @@ describe('Adding to the cart, checkout, removing', () => {
       .should('exist');
     cy.contains('#checkout', 'Auschecken')
       .should('exist');
-    cy.get('.shopify-section')
-      .contains('GRÜNER TEPPICH IM AED-EXPO-STIL');
+    cy.contains('.shopify-section', 'GRÜNER TEPPICH IM AED-EXPO-STIL')
+      .should('exist');
     cy.contains('.gr-link', 'Weiter shoppen')
       .should('exist');
     cy.get('.cart__dynamic-checkout-buttons')
@@ -251,8 +251,8 @@ describe('Adding to the cart, checkout, removing', () => {
       .should('exist');
     cy.contains('#checkout', 'Auschecken')
       .should('exist');
-    cy.get('.shopify-section')
-      .contains('Beneca 35 mm Spanngurt');
+    cy.contains('.shopify-section', 'Beneca 35 mm Spanngurt')
+      .should('exist');
     cy.contains('.gr-link', 'Weiter shoppen')
       .should('exist');
     cy.get('.cart__dynamic-checkout-buttons')

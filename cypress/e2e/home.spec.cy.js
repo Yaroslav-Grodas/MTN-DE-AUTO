@@ -14,8 +14,8 @@ describe('template spec', () => {
     cy.get('[aria-label="Close form 3"]')
       .click();*/
 
-    cy.get('.gr-announcement-bar__wrapper')
-      .contains('Sie möchten ein individuelles Angebot? Hier klicken und Anfrage senden. ');
+    cy.contains('.gr-announcement-bar__wrapper', 'Sie möchten ein individuelles Angebot? Hier klicken und Anfrage senden. ')
+      .should('exist');
 
     cy.get('.gr-search-form')
       .should('exist');
@@ -44,16 +44,16 @@ describe('template spec', () => {
     cy.get('.gr-inc-switcher')
       .should('exist');
 
-    cy.get('.gr-header-menu')
-      .contains('a', 'Industrietechnik und -maschinen');
-    cy.get('.gr-header-menu')
-      .contains('a', 'PSA und Sicherheitsausrüstung');
-    cy.get('.gr-header-menu')
-      .contains('a', 'Veranstaltungstechnik');
-    cy.get('.gr-header-menu')
-      .contains('a', 'Arbeitskleidung');
-    cy.get('.gr-header-menu')
-      .contains('a', 'Marken');
+    cy.contains('.gr-header-menu', 'Industrietechnik und -maschinen')
+      .should('exist');
+    cy.contains('.gr-header-menu', 'PSA und Sicherheitsausrüstung')
+      .should('exist');
+    cy.contains('.gr-header-menu', 'Veranstaltungstechnik')
+      .should('exist');
+    cy.contains('.gr-header-menu', 'Arbeitskleidung')
+      .should('exist');
+    cy.contains('.gr-header-menu', 'Marken')
+      .should('exist');
 
     cy.get('.gr-slide__wrapper-image')
       .should('exist');
@@ -86,35 +86,43 @@ describe('template spec', () => {
       .find('a[href="https://forms.monday.com/forms/bd3fd18444c5de13e467f7448d2f7b38?r=use1"]')
       .should('exist');
 
-    cy.get('.gr-footer__navigation')
-      .contains('a', 'ÜBER UNS');
-    cy.get('.gr-footer__navigation')
-      .contains('a', 'IMPRESSUM');
-    cy.get('.gr-footer__navigation')
-      .contains('a', 'ALLGEMEINE GESCHÄFTSBEDINGUNGEN');
-    cy.get('.gr-footer__navigation')
-      .contains('a', 'DATENSCHUTZERKLÄRUNG');
-    cy.get('.gr-footer__navigation')
-      .contains('a', 'ZAHLUNG & VERSAND');
-    cy.get('.gr-footer__navigation')
-      .contains('a', 'WIDERRUFSRECHT');
-    cy.get('.gr-footer__navigation')
-      .contains('a', 'VERPACKUNGSHINWEISE');
-    cy.get('.gr-footer__navigation')
-      .contains('a', 'KARRIERE');
-    cy.get('.gr-footer__navigation')
-      .contains('a', 'ANGEBOTSANFRAGE');
-    cy.get('.gr-footer__navigation')
-      .contains('a', 'KUNDENKONTO');
-    cy.get('.gr-footer__navigation')
-      .contains('a', 'BLOGS');
-    cy.get('.gr-footer__navigation')
-      .contains('a', 'FEEDBACK');
-    cy.get('.gr-footer__navigation')
-      .contains('a', 'FAQ');
-    cy.get('.gr-footer__navigation')
-      .contains('a', 'KONTAKTAUFNAHME');
-  
+    cy.contains('.gr-footer__navigation', 'ÜBER UNS')
+      .should('exist');
+    cy.contains('.gr-footer__navigation', 'IMPRESSUM')
+      .should('exist');
+    cy.contains('.gr-footer__navigation', 'ALLGEMEINE GESCHÄFTSBEDINGUNGEN')
+      .should('exist');
+    cy.contains('.gr-footer__navigation', 'DATENSCHUTZERKLÄRUNG')
+      .should('exist');
+    cy.contains('.gr-footer__navigation', 'ZAHLUNG & VERSAND')
+      .should('exist');
+    cy.contains('.gr-footer__navigation', 'WIDERRUFSRECHT')
+      .should('exist');
+    cy.contains('.gr-footer__navigation', 'VERPACKUNGSHINWEISE')
+      .should('exist');
+    cy.contains('.gr-footer__navigation', 'KARRIERE')
+      .should('exist');
+    cy.contains('.gr-footer__navigation', 'ANGEBOTSANFRAGE')
+      .should('exist');
+    cy.contains('.gr-footer__navigation', 'KUNDENKONTO')
+      .should('exist');
+    cy.contains('.gr-footer__navigation', 'BLOGS')
+      .should('exist');
+    cy.contains('.gr-footer__navigation', 'FEEDBACK')
+      .should('exist');
+    cy.contains('.gr-footer__navigation', 'FAQ')
+      .should('exist');
+    cy.contains('.gr-footer__navigation', 'KONTAKTAUFNAHME')
+      .should('exist');
+
+    cy.contains('.gr-footer__nav', 'MTN SHOP')
+      .find('li')
+      .should('have.length', 8);
+
+    cy.contains('.gr-footer__nav', 'HILFE & SERVICE')
+      .find('li')
+      .should('have.length', 6);
+      
     cy.get('.gr-footer__actions')
       .find('.gr-footer__title')
       .should('contain.text', 'FOLGEN SIE UNS AUF SOCIAL MEDIA!');
