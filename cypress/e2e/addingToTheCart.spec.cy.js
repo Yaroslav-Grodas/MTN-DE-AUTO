@@ -43,6 +43,8 @@ describe('Adding to the cart, checkout, removing', () => {
 
     cy.wait(5000);
 
+    cy.intercept('GET', 'https://de.app.mountainproductions.com/api/get_data?shop=mtn-shop-de-test.myshopify.com*').as('gettingBrand');
+
     cy.contains('.gr-brands-list__item', 'AED')
       .click();
 
@@ -51,12 +53,18 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.get('h1')
       .should('contain.text', 'AED');
 
-    cy.wait(10000);
+    cy.wait('@gettingBrand')
+
+    //cy.wait(10000);
+
+    cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
 
     cy.contains('.gr-card-rich-product__heading', 'GRÜNER TEPPICH IM AED-EXPO-STIL')
       .click();
 
-    cy.wait(2000);
+    cy.wait('@gettingProduct');
+
+    //cy.wait(2000);
 
     cy.assertPageUrl('/products/aed-expo-style-gruner-teppich?variant=46882625651023');
     
@@ -65,19 +73,27 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.get('.gr-price__container')
       .should('exist');
 
+    cy.intercept('GET', '/cart.json').as('addingToCart');
+
+
     cy.get('.product-form__submit')
       .click();
 
-    cy.wait(2000);
+    cy.wait('@addingToCart');
+
+    //cy.wait(2000);
 
     cy.get('.gr-count-bubble')
       .should('exist');
 
     cy.wait(2000);
 
+    cy.intercept('GET', '/cart.json').as('checkingCart');
+
     cy.contains('.gr-cart__checkout-btn', 'Warenkorb ansehen')
       .click();
-    cy.wait(2000);
+    cy.wait('@checkingCart');
+    //cy.wait(2000);
     cy.url()
       .should('include', '/cart');
     cy.contains('h1', 'Dein Warenkorb')
@@ -103,6 +119,8 @@ describe('Adding to the cart, checkout, removing', () => {
 
     cy.wait(5000);
 
+    cy.intercept('GET', 'https://de.app.mountainproductions.com/api/get_data?shop=mtn-shop-de-test.myshopify.com*').as('gettingBrand');
+
     cy.contains('.gr-brands-list__item', 'Crewsaver')
       .click();
 
@@ -113,12 +131,18 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.get('h1')
       .should('contain.text', 'Crewsaver');
 
-    cy.wait(10000);
+    cy.wait('@gettingBrand');
+
+    //cy.wait(10000);
+
+    cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
 
     cy.contains('.gr-card-rich-product__heading', 'Crewsaver Seacrewsader 275N 3D feuerhemmende Schwimmweste 83220')
       .click();
 
-    cy.wait(2000);
+    cy.wait('@gettingProduct')
+
+    //cy.wait(2000);
 
     cy.assertPageUrl('/products/hansen-seacrewsader-275n-3d-fire-retardant-life-jacket-83220?variant=46681051627855');
 
@@ -156,10 +180,11 @@ describe('Adding to the cart, checkout, removing', () => {
           }
         })
         .as('savedTextValue'); // Alias the value as 'savedTextValue'
-      
+      cy.intercept('GET', '/cart.json').as('addingToCart');
       // Move the following part outside of the 'then' block
       cy.get('.product-form__submit').click().then(() => {
-        cy.wait(5000);
+        cy.wait('@addingToCart');
+        //cy.wait(5000);
         cy.contains('.gr-cart__checkout-btn', 'Warenkorb ansehen')
           .click().then(() => {
           cy.get('@savedTextValue').then((savedValue) => {
@@ -206,6 +231,8 @@ describe('Adding to the cart, checkout, removing', () => {
 
     cy.wait(5000);
 
+    cy.intercept('GET', 'https://de.app.mountainproductions.com/api/get_data?shop=mtn-shop-de-test.myshopify.com*').as('gettingBrand');
+
     cy.contains('.gr-brands-list__item', 'Beneca')
       .click();
 
@@ -216,12 +243,18 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.get('h1')
       .should('contain.text', 'Beneca');
 
-    cy.wait(10000);
+    cy.wait('@gettingBrand');
+
+    //cy.wait(10000);
+
+    cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
 
     cy.contains('.gr-card-rich-product__heading', 'Beneca 35 mm Spanngurt')
       .click();
 
-    cy.wait(2000);
+    cy.wait('@gettingProduct');
+
+    //cy.wait(2000);
 
     cy.assertPageUrl('/products/beneca-spanngurt-35mm?variant=40567298228390');
 
@@ -230,20 +263,28 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.get('.gr-price__container')
       .should('exist');
 
+    cy.intercept('GET', '/cart.json').as('addingToCart');
+
     cy.get('.product-form__submit')
       .click();
 
-    cy.wait(2000);
+    cy.wait('@addingToCart')
+
+    //cy.wait(2000);
 
     cy.get('.gr-count-bubble')
       .should('exist');
 
     cy.wait(2000);
 
+    cy.intercept('GET', '/cart.json').as('checkingCart');
+
     cy.contains('.gr-cart__checkout-btn', 'Warenkorb ansehen')
       .click();
 
-    cy.wait(2000);
+    cy.wait('@checkingCart');
+
+    //cy.wait(2000);
   
     cy.assertPageUrl('/cart');
 
@@ -260,7 +301,7 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.get('.gr-cart-footer-subtotal-wrap')
       .should('exist');
 
-      /*cy.get('.gr-cart-item__del-btn').first().click( {force: true} );*/
+      /*cy.get('.gr-cart-item__del-btn').first().click( {force: true} );*/ 
 
     cy.get('button[name="minus"]').last().click( {force: true} ); 
 

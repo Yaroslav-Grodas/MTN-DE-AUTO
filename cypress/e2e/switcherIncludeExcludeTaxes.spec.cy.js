@@ -26,6 +26,8 @@ describe('switcher taxes', () => {
 
     cy.wait(5000);
 
+    cy.intercept('GET', 'https://de.app.mountainproductions.com/api/get_data?shop=mtn-shop-de-test.myshopify.com*').as('gettingBrand');
+
     cy.contains('.gr-brands-list__item', 'Grabo')
       .click();
 
@@ -34,7 +36,7 @@ describe('switcher taxes', () => {
     cy.get('h1')
       .should('contain.text', 'GRABO - Elektro-Vakuumheber');
 
-    cy.wait(10000);
+    cy.wait('@gettingBrand');
 
     cy.contains('.gr-card-rich-product__heading', 'GRABO PRO Elektro-Vakuumheber')
       .click();
@@ -93,6 +95,8 @@ describe('switcher taxes', () => {
 
     cy.wait(5000);
 
+    cy.intercept('GET', 'https://de.app.mountainproductions.com/api/get_data?shop=mtn-shop-de-test.myshopify.com*').as('gettingBrand');
+
     cy.contains('.gr-brands-list__item', 'Hansen')
       .click();
 
@@ -101,7 +105,7 @@ describe('switcher taxes', () => {
     cy.get('h1')
       .should('contain.text', 'Hansen Protection');
 
-    cy.wait(10000);
+    cy.wait('@gettingBrand');
 
     cy.contains('.gr-card-rich-product__heading', 'Hansen Protection SeaBreeze CTV Arbeitsanzug mit Socken 85386 (50 Stück)')
       .click();
@@ -160,6 +164,8 @@ describe('switcher taxes', () => {
 
     cy.wait(5000);
 
+    cy.intercept('GET', 'https://de.app.mountainproductions.com/api/get_data?shop=mtn-shop-de-test.myshopify.com*').as('gettingBrand');
+
     cy.contains('.gr-brands-list__item', 'Petzl')
       .click();
 
@@ -168,7 +174,7 @@ describe('switcher taxes', () => {
     cy.get('h1')
       .should('contain.text', 'Petzl');
 
-    cy.wait(10000);
+    cy.wait('@gettingBrand');
 
     cy.contains('.gr-card-rich-product__heading', 'Petzl AVAO® BOD FAST Auffang- und Haltegurt')
       .click();

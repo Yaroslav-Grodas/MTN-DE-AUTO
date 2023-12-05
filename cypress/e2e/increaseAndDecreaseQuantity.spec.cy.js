@@ -29,6 +29,8 @@ describe('Increase and decrease quantity functionality', () => {
 
     cy.wait(5000);
 
+    cy.intercept('GET', 'https://de.app.mountainproductions.com/api/get_data?shop=mtn-shop-de-test.myshopify.com*').as('gettingBrand');
+
     cy.contains('.gr-brands-list__item', 'Tigrip')
       .click();
 
@@ -39,7 +41,9 @@ describe('Increase and decrease quantity functionality', () => {
     cy.get('h1')
       .should('contain.text', 'Tigrip');
 
-    cy.wait(10000);
+    cy.wait('@gettingBrand');
+
+    cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
 
     cy.contains('.gr-card-rich-product__heading', 'Tigrip® Permanent-Lasthebemagnet TPM')
       .click();
@@ -49,16 +53,19 @@ describe('Increase and decrease quantity functionality', () => {
     cy.get('h1')
       .should('contain.text', 'Tigrip® Permanent-Lasthebemagnet TPM');
 
-    cy.wait(2000);
+    cy.wait('@gettingProduct');
+
+    cy.intercept('GET', '/cart.json').as('addingToCart');
 
     cy.get('.product-form__submit')
       .click()
       .then(() => {
-        cy.wait(5000);
+        cy.wait('@addingToCart');
+        cy.intercept('GET', '/cart.json').as('checkingCart');
         cy.contains('.gr-cart__checkout-btn', 'Warenkorb ansehen').click( {force: true} )
       });
 
-    cy.wait(2000);
+    cy.wait('@checkingCart');
 
     cy.get('.gr-cart-item__link')
       .should('contain.text', 'Tigrip® Permanent-Lasthebemagnet TPM');
@@ -113,6 +120,8 @@ describe('Increase and decrease quantity functionality', () => {
 
     cy.wait(5000);
 
+    cy.intercept('GET', 'https://de.app.mountainproductions.com/api/get_data?shop=mtn-shop-de-test.myshopify.com*').as('gettingBrand');
+
     cy.contains('.gr-brands-list__item', 'Kuzar')
       .click();
 
@@ -123,7 +132,10 @@ describe('Increase and decrease quantity functionality', () => {
     cy.get('h1')
       .should('contain.text', 'Kuzar');
 
-    cy.wait(10000);
+    cy.wait('@gettingBrand');
+
+    cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
+
 
     cy.contains('.gr-card-rich-product__heading', 'Kuzar Line Array Lift K-50')
       .click();
@@ -133,17 +145,19 @@ describe('Increase and decrease quantity functionality', () => {
     cy.get('h1')
       .should('contain.text', 'Kuzar Line Array Lift K-50');
 
-    cy.wait(2000);
+    cy.wait('@gettingProduct');
+
+    cy.intercept('GET', '/cart.json').as('addingToCart');
 
     cy.contains('.product-form__submit', 'In den Warenkorb')
       .click()
       .then(() => {
-        cy.wait(5000);
+        cy.wait('@addingToCart');
         cy.contains('.gr-cart__checkout-btn', 'Warenkorb ansehen')
           .click( {force: true} );
       });
 
-    cy.wait(2000);
+    cy.wait('@addingToCart');
 
     cy.get('.gr-cart-item__link')
       .should('contain.text', 'Kuzar Line Array Lift K-50');
@@ -199,6 +213,8 @@ describe('Increase and decrease quantity functionality', () => {
 
     cy.wait(5000);
 
+    cy.intercept('GET', 'https://de.app.mountainproductions.com/api/get_data?shop=mtn-shop-de-test.myshopify.com*').as('gettingBrand');
+
     cy.contains('.gr-brands-list__item', 'Pfaff-silberblau')
       .click();
 
@@ -209,7 +225,9 @@ describe('Increase and decrease quantity functionality', () => {
     cy.get('h1')
       .should('contain.text', 'Pfaff-silberblau');
 
-    cy.wait(10000);
+    cy.wait('@gettingBrand');
+
+    cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
 
     cy.contains('.gr-card-rich-product__heading', 'Pfaff ATEX PROLINE Handgabelhubwagen in Edelstahlausführung (HU 20-115 VATP)')
       .click();
@@ -219,17 +237,19 @@ describe('Increase and decrease quantity functionality', () => {
     cy.get('h1')
       .should('contain.text', 'Pfaff ATEX PROLINE Handgabelhubwagen in Edelstahlausführung (HU 20-115 VATP)');
 
-    cy.wait(2000);
+    cy.wait('@gettingProduct');
+
+    cy.intercept('GET', '/cart.json').as('addingToCart');
 
     cy.get('.product-form__submit')
       .click()
       .then(() => {
-        cy.wait(5000);
+        cy.wait('@addingToCart');
         cy.contains('.gr-cart__checkout-btn', 'Warenkorb ansehen')
           .click( {force: true} );
       });
 
-    cy.wait(2000);
+    cy.wait('@addingToCart');
 
     cy.get('.gr-cart-item__link')
       .should('contain.text', 'Pfaff ATEX PROLINE Handgabelhubwagen in Edelstahlausführung (HU 20-115 VATP)');

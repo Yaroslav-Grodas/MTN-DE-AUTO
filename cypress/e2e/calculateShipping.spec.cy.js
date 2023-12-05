@@ -26,6 +26,8 @@ describe('calculate shipping', () => {
 
     cy.wait(5000);
 
+    cy.intercept('GET', 'https://de.app.mountainproductions.com/api/get_data?shop=mtn-shop-de-test.myshopify.com*').as('gettingBrand');
+
     cy.contains('.gr-brands-list__item', 'Beneca')
       .click();
 
@@ -34,7 +36,9 @@ describe('calculate shipping', () => {
     cy.get('h1')
       .should('contain.text', 'Beneca');
 
-    cy.wait(10000);
+    cy.wait('@gettingBrand');
+
+    cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
 
     cy.contains('.gr-card-rich-product__heading', 'Beneca 50 mm einteiliger Spanngurt')
       .click();
@@ -42,7 +46,7 @@ describe('calculate shipping', () => {
     cy.get('h1')
       .should('contain.text', 'Beneca 50 mm einteiliger Spanngurt');
 
-    cy.wait(2000);
+    cy.wait('@gettingProduct');
 
     cy.contains('.gr-summary__heading', 'Versandkostenrechner')
       .click();
@@ -72,6 +76,8 @@ describe('calculate shipping', () => {
 
     cy.wait(5000);
 
+    cy.intercept('GET', 'https://de.app.mountainproductions.com/api/get_data?shop=mtn-shop-de-test.myshopify.com*').as('gettingBrand');
+
     cy.contains('.gr-brands-list__item', 'Edelweiss')
       .click();
 
@@ -82,7 +88,9 @@ describe('calculate shipping', () => {
     cy.get('h1')
       .should('contain.text', 'Edelweiss');
 
-    cy.wait(10000);
+    cy.wait('@gettingBrand');
+
+    cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
 
     cy.contains('.gr-card-rich-product__heading', 'EDELWEISS Alukarabiner O3 oval trilock')
       .click();
@@ -92,7 +100,7 @@ describe('calculate shipping', () => {
     cy.get('h1')
       .should('contain.text', 'EDELWEISS Alukarabiner O3 oval trilock');
 
-    cy.wait(2000);
+    cy.wait('@gettingProduct');
 
     cy.contains('.gr-summary__heading', 'Versandkostenrechner')
       .click();
@@ -170,6 +178,8 @@ describe('calculate shipping', () => {
 
     cy.wait(5000);
 
+    cy.intercept('GET', 'https://de.app.mountainproductions.com/api/get_data?shop=mtn-shop-de-test.myshopify.com*').as('gettingBrand');
+
     cy.contains('.gr-brands-list__item', 'Safetex')
       .click();
 
@@ -178,7 +188,9 @@ describe('calculate shipping', () => {
     cy.get('h1')
       .should('contain.text', 'Safetex');
 
-    cy.wait(10000);
+    cy.wait('@gettingBrand');
+
+    cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
 
     cy.contains('.gr-card-rich-product__heading', 'Safetex Rundschlinge SX schwarz - 10 Stück')
       .click();
@@ -186,7 +198,7 @@ describe('calculate shipping', () => {
     cy.get('h1')
       .should('contain.text', 'Safetex Rundschlinge SX schwarz - 10 Stück');
 
-    cy.wait(2000);
+    cy.wait('@gettingProduct');
 
     cy.contains('.gr-summary__heading', 'Versandkostenrechner')
       .click();
@@ -216,6 +228,8 @@ describe('calculate shipping', () => {
 
     cy.wait(5000);
 
+    cy.intercept('GET', 'https://de.app.mountainproductions.com/api/get_data?shop=mtn-shop-de-test.myshopify.com*').as('gettingBrand');
+
     cy.contains('.gr-brands-list__item', 'Klotz')
       .click();
 
@@ -226,7 +240,9 @@ describe('calculate shipping', () => {
     cy.get('h1')
       .should('contain.text', 'Klotz');
 
-    cy.wait(10000);
+    cy.wait('@gettingBrand');
+
+    cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
 
     cy.contains('.gr-card-rich-product__heading', 'Klotz HDMI 2.1 AOC Drum - active optical cable armiert - stecker mit schutzkappen')
       .click();
@@ -236,7 +252,7 @@ describe('calculate shipping', () => {
     cy.get('h1')
       .should('contain.text', 'Klotz HDMI 2.1 AOC Drum - active optical cable armiert - stecker mit schutzkappen');
 
-    cy.wait(2000);
+    cy.wait('@gettingProduct');
 
     cy.contains('.gr-summary__heading', 'Versandkostenrechner')
       .click();
@@ -249,10 +265,12 @@ describe('calculate shipping', () => {
     cy.get('#gr_shipping_calculator_zip')
       .type('3030');
 
+    cy.intercept('GET', '/cart/shipping_rates.json?*').as('calculatingShipping');
+
     cy.contains('.gr-shipping-calc__submit', 'Versandkosten berechnen')
       .click();
 
-    cy.wait(2000);
+    cy.wait('@calculatingShipping');
 
     cy.get('.gr-shipping-calc__response')
       .should('exist');
@@ -268,6 +286,8 @@ describe('calculate shipping', () => {
 
     cy.wait(5000);
 
+    cy.intercept('GET', 'https://de.app.mountainproductions.com/api/get_data?shop=mtn-shop-de-test.myshopify.com*').as('gettingBrand');
+
     cy.contains('.gr-brands-list__item', 'Crewsaver')
       .click();
 
@@ -276,7 +296,9 @@ describe('calculate shipping', () => {
     cy.get('h1')
       .should('contain.text', 'Crewsaver');
 
-    cy.wait(10000);
+    cy.wait('@gettingBrand');
+
+    cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
 
     cy.contains('.gr-card-rich-product__heading', 'Crewsaver Premier Kinderschwimmweste 83205')
       .click();
@@ -284,7 +306,7 @@ describe('calculate shipping', () => {
     cy.get('h1')
       .should('contain.text', 'Crewsaver Premier Kinderschwimmweste 83205');
 
-    cy.wait(2000);
+    cy.wait('@gettingProduct');
 
     cy.contains('.gr-summary__heading', 'Versandkostenrechner')
       .click();
