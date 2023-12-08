@@ -35,14 +35,14 @@ describe('blog page', () => {
     cy.get('.gr-pagination')
       .should('exist');
 
-    cy.contains('.gr-article-card__heading', 'Lift-Off: Revolutionieren Sie Ihr Rigging in der Entertainmentbranche')
+    cy.contains('.gr-article-card__heading', 'Schutzhelme von Kask')
       .click();
 
     cy.get('h1')
-      .should('contain.text', 'Lift-Off: Revolutionieren Sie Ihr Rigging in der Entertainmentbranche');
+      .should('contain.text', 'Schutzhelme von Kask');
 
     cy.get('.gr-author-info')
-      .should('contain.text', 'mtn shop de');
+      .should('contain.text', 'Deniz Tombak');
 
     cy.get('.gr-sharing-wrap')
       .should('exist');
