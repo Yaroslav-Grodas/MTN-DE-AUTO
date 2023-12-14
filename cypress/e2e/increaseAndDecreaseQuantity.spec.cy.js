@@ -29,29 +29,34 @@ describe('Increase and decrease quantity functionality', () => {
 
     cy.wait(5000);
 
+    cy.get('[aria-label="Close dialog 1"]')
+      .click( {force: true} );
+
+      cy.wait(2000)
+
     cy.intercept('GET', 'https://de.app.mountainproductions.com/api/get_data?shop=mtn-shop-de-test.myshopify.com*').as('gettingBrand');
 
-    cy.contains('.gr-brands-list__item', 'Tigrip')
+    cy.get('[href="/collections/reutlinger"]').first()
       .click( {force: true} );
 
     cy.wait(2000);
 
-    cy.assertPageUrl('/collections/tigrip');
+    cy.assertPageUrl('/collections/reutlinger');
 
     cy.get('h1')
-      .should('contain.text', 'Tigrip');
+      .should('contain.text', 'Reutlinger');
 
     cy.wait('@gettingBrand');
 
     cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
 
-    cy.contains('.gr-card-rich-product__heading', 'Tigrip® Permanent-Lasthebemagnet TPM')
+    cy.contains('.gr-card-rich-product__heading', 'Reutlinger Drahtseilhalter SV III ZW Gabel')
       .click();
 
     cy.wait(2000);
 
     cy.get('h1')
-      .should('contain.text', 'Tigrip® Permanent-Lasthebemagnet TPM');
+      .should('contain.text', 'Reutlinger Drahtseilhalter SV III ZW Gabel');
 
     cy.wait('@gettingProduct');
 
@@ -68,7 +73,7 @@ describe('Increase and decrease quantity functionality', () => {
     cy.wait('@checkingCart');
 
     cy.get('.gr-cart-item__link')
-      .should('contain.text', 'Tigrip® Permanent-Lasthebemagnet TPM');
+      .should('contain.text', 'Reutlinger Drahtseilhalter SV III ZW Gabel');
 
     cy.get('.quantity__input')
       .invoke('val').as('initialQuantity')
@@ -215,8 +220,8 @@ describe('Increase and decrease quantity functionality', () => {
 
     cy.intercept('GET', 'https://de.app.mountainproductions.com/api/get_data?shop=mtn-shop-de-test.myshopify.com*').as('gettingBrand');
 
-    cy.contains('.gr-brands-list__item', 'Pfaff-silberblau')
-      .click();
+    cy.get('[href="/collections/pfaff-silberblau"]').first()
+      .click( {force: true} );
 
     cy.wait(2000);
 
