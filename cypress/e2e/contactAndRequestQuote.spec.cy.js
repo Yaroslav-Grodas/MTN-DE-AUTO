@@ -20,7 +20,7 @@ describe('contact form and request for quote form', () => {
   it('should allow user to visit contact form', () => {
   
     cy.contains('.gr-footer__nav-link', 'KONTAKTAUFNAHME')
-      .click();
+      .click( {force: true} );
 
     cy.assertPageUrl('/pages/kontakt');
 
@@ -38,7 +38,7 @@ describe('contact form and request for quote form', () => {
   it('should allow user to visit reqest for quote page', () => {
  
     cy.contains('.gr-footer__nav-link', 'ANGEBOTSANFRAGE')
-      .click();
+      .click( {force: true} );
 
     cy.assertPageUrl('/pages/angebotsanfrage');
 

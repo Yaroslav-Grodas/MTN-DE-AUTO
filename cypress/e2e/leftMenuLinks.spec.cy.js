@@ -21,7 +21,7 @@ describe('career page, right of withdrawal, packaging notes, payment, data prote
   it('should allow user to visit career page', () => {
 
     cy.contains('.gr-footer__nav-link', 'KARRIERE')
-      .click();
+      .click( {force: true} );
 
     cy.assertPageUrl('/pages/aktuelle-stellenausschreibungen');
 
@@ -39,7 +39,7 @@ describe('career page, right of withdrawal, packaging notes, payment, data prote
   it('should allow user to visit withdrawal page', () => {
 
     cy.contains('.gr-footer__nav-link', 'WIDERRUFSRECHT')
-      .click();
+      .click( {force: true} );
 
     cy.assertPageUrl('/policies/refund-policy');
 
@@ -54,7 +54,7 @@ describe('career page, right of withdrawal, packaging notes, payment, data prote
   it('should allow user to visit packaging notes page', () => {
 
     cy.contains('.gr-footer__nav-link', 'VERPACKUNGSHINWEISE')
-      .click();
+      .click( {force: true} );
 
     cy.assertPageUrl('/pages/verpackungshinweise');
 
@@ -68,7 +68,7 @@ describe('career page, right of withdrawal, packaging notes, payment, data prote
   it('should allow user to visit payment page', () => {
  
     cy.contains('.gr-footer__nav-link', 'ZAHLUNG & VERSAND')
-      .click();
+      .click( {force: true} );
 
     cy.assertPageUrl('/policies/shipping-policy');
 
@@ -82,7 +82,7 @@ describe('career page, right of withdrawal, packaging notes, payment, data prote
   it('should allow user to visit data protection page', () => {
 
     cy.contains('.gr-footer__nav-link', 'DATENSCHUTZERKLÄRUNG')
-      .click();
+      .click( {force: true} );
 
     cy.assertPageUrl('/policies/privacy-policy');
 
@@ -96,7 +96,7 @@ describe('career page, right of withdrawal, packaging notes, payment, data prote
   it('should allow user to visit general terms page', () => {
 
     cy.contains('.gr-footer__nav-link', 'ALLGEMEINE GESCHÄFTSBEDINGUNGEN')
-      .click();
+      .click( {force: true} );
 
     cy.assertPageUrl('/policies/terms-of-service');
 
@@ -110,7 +110,7 @@ describe('career page, right of withdrawal, packaging notes, payment, data prote
   it('should allow user to visit imprint page', () => {
 
     cy.contains('.gr-footer__nav-link', 'IMPRESSUM')
-      .click();
+      .click( {force: true} );
 
     cy.assertPageUrl('/policies/legal-notice');
 
@@ -124,7 +124,7 @@ describe('career page, right of withdrawal, packaging notes, payment, data prote
   it('should allow user to visit about us page', () => {
 
     cy.contains('.gr-footer__nav-link', 'ÜBER UNS')
-      .click();
+      .click( {force: true} );
 
     cy.assertPageUrl('/pages/ueber-uns');
 

@@ -21,7 +21,7 @@ describe('Increase and decrease quantity functionality', () => {
     
 
     cy.contains('.gr-header-menu__link', 'Marken')
-      .click();
+      .click( {force: true} );
 
     cy.wait(2000);
 
@@ -32,7 +32,7 @@ describe('Increase and decrease quantity functionality', () => {
     cy.intercept('GET', 'https://de.app.mountainproductions.com/api/get_data?shop=mtn-shop-de-test.myshopify.com*').as('gettingBrand');
 
     cy.contains('.gr-brands-list__item', 'Tigrip')
-      .click();
+      .click( {force: true} );
 
     cy.wait(2000);
 

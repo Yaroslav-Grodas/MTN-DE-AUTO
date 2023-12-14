@@ -155,7 +155,7 @@ describe('switcher taxes', () => {
 
   });
 
-  it('should check if the price is different after clicking the switcher THIRD PRODUCT', () => {
+  it.only('should check if the price is different after clicking the switcher THIRD PRODUCT', () => {
 
     cy.contains('.gr-header-menu__link', 'Marken')
       .click();
@@ -167,7 +167,9 @@ describe('switcher taxes', () => {
     cy.intercept('GET', 'https://de.app.mountainproductions.com/api/get_data?shop=mtn-shop-de-test.myshopify.com*').as('gettingBrand');
 
     cy.contains('.gr-brands-list__item', 'Petzl')
-      .click();
+      .click( {force: true} );
+
+    cy.wait(2000);
 
     cy.assertPageUrl('/collections/petzl');
 

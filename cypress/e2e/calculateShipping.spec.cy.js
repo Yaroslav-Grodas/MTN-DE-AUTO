@@ -15,12 +15,17 @@ describe('calculate shipping', () => {
 
     cy.get('[aria-label="Close form 3"]')
       .click();*/
+
+      cy.wait(2000)
+
+      cy.get('[aria-label="Close dialog 1"]')
+      .click( {force: true} );
   });  
 
   it('should allow user to calculate shipping of the product FIRST case', () => {
 
     cy.contains('.gr-header-menu__link', 'Marken')
-      .click();
+      .click( {force: true} );
 
     cy.assertPageUrl('/pages/unsere-marken');
 
@@ -68,7 +73,7 @@ describe('calculate shipping', () => {
   it.skip('should allow user to calculate shipping of the product SECOND case', () => {
 
     cy.contains('.gr-header-menu__link', 'Marken')
-      .click();
+      .click( {force: true} );
 
     cy.wait(2000);
 
@@ -172,7 +177,7 @@ describe('calculate shipping', () => {
   it('should allow user to calculate shipping of the product FOURTH case', () => {
 
     cy.contains('.gr-header-menu__link', 'Marken')
-      .click();
+      .click( {force: true} );
 
     cy.assertPageUrl('/pages/unsere-marken');
 
@@ -220,7 +225,7 @@ describe('calculate shipping', () => {
   it('should allow user to calculate shipping of the product FIFTH case', () => {
 
     cy.contains('.gr-header-menu__link', 'Marken')
-      .click();
+      .click( {force: true} );
 
     cy.wait(2000);
 
@@ -280,7 +285,7 @@ describe('calculate shipping', () => {
   it('negative scenarios in the shipping calculation', () => {
 
     cy.contains('.gr-header-menu__link', 'Marken')
-      .click();
+      .click( {force: true} );
 
     cy.assertPageUrl('/pages/unsere-marken');
 

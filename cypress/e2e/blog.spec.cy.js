@@ -13,6 +13,9 @@ describe('blog page', () => {
     cy.get('[aria-label="Close form 3"]')
       .click();*/
 
+      cy.get('[aria-label="Close dialog 1"]')
+        .click( {force: true} );
+
     cy.contains('.gr-footer__nav-link', 'BLOGS')
       .click();
 

@@ -16,8 +16,12 @@ describe('FAQ page', () => {
     /*cy.get('[aria-label="Close form 3"]')
       .click();*/
 
+    cy.get('[aria-label="Close dialog 1"]')
+      .click( {force: true} );
+
+
     cy.contains('.gr-footer__nav-link', 'FAQ')
-      .click();
+      .click( {force: true} );
 
     cy.assertPageUrl('/pages/faqs');
     

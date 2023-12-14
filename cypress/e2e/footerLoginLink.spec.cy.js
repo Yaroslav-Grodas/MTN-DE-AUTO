@@ -17,7 +17,7 @@ describe('footer login link', () => {
       .click();*/
 
     cy.contains('.gr-footer__nav-link', 'KUNDENKONTO')
-      .click();
+      .click( {force: true} );
 
     cy.assertPageUrl('/account/login');
 
@@ -29,7 +29,7 @@ describe('footer login link', () => {
 
     cy.get('a[href="/account/register"]')
       .should('exist')
-      .click();
+      .click( {force: true} );
 
     cy.assertPageUrl('/account/register')
 
@@ -55,7 +55,7 @@ describe('footer login link', () => {
       .should('exist');
 
     cy.contains('.gr-btn', 'Anmeldung')
-      .click();
+      .click( {force: true} );
 
     /*cy.get('.klaviyo-form-version-cid_1')
       .should('exist');*/ //Check that form to register with amount exists

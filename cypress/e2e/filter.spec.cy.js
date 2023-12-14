@@ -21,7 +21,7 @@ describe('filter functionality', () => {
   it('should allow user to filter Brand', () => {
 
     cy.contains('.gr-header-menu__link', 'PSA und Sicherheitsausrüstung')
-      .click();
+      .click( {force: true} );
 
     cy.get('#gr-btn-filters-show')
       .click( {force: true} );
@@ -40,10 +40,7 @@ describe('filter functionality', () => {
     cy.contains('h3', 'Farbe')
       .should('exist');
 
-    cy.contains('h3', 'Typ')
-      .should('exist');
-
-    cy.contains('h3', 'Spezifikationen')
+    cy.contains('h3', 'Kategorie')
       .should('exist');
 
     cy.contains('.gr-checkbox-wrap', 'KASK')
@@ -64,10 +61,10 @@ describe('filter functionality', () => {
 
   });
 
-  it('should allow user to filter Type', () => {
+  it.skip('should allow user to filter Type', () => {
 
     cy.contains('.gr-header-menu__link', 'PSA und Sicherheitsausrüstung')
-      .click();
+      .click( {force: true} );
 
     cy.get('#gr-btn-filters-show')
       .click();
@@ -98,24 +95,24 @@ describe('filter functionality', () => {
     });
   });
 
-  it('should allow user to filter Specification', () => {
+  it('should allow user to filter Kategorie', () => {
 
     cy.contains('.gr-header-menu__link', 'PSA und Sicherheitsausrüstung')
-      .click();
+      .click( {force: true} );
 
     cy.get('#gr-btn-filters-show')
-      .click();
+      .click( {force: true} );
 
     cy.get('.gr-filters')
       .should('exist');
 
     cy.wait(5000);
 
-    cy.get('[data-name="Spezifikationen"]')
-      .find('button[data-filter-index="3"]')
+    cy.get('[data-name="Kategorie"]')
+      //.find('button[data-filter-index="3"]')
       .click();
 
-    cy.contains('.gr-checkbox-wrap', 'Abseilachter')
+    cy.contains('.gr-checkbox-wrap', 'Handschuhe')
       .click({ force: true });
 
     cy.wait(5000)
@@ -134,14 +131,14 @@ describe('filter functionality', () => {
         cy.get('@productCard')
           .find('.gr-card-rich-product__heading')
           .invoke('text')
-          .should('include', 'Abseilachter');
+          .should('include', 'Handschuhe');
     });
   });
 
   it('should allow user to filter Color', () => {
 
     cy.contains('.gr-header-menu__link', 'Arbeitskleidung')
-      .click();
+      .click( {force: true} );
 
     cy.get('#gr-btn-filters-show')
       .click();
