@@ -33,9 +33,9 @@ describe('template spec', () => {
 
     cy.get('.gr-icon-cart-empty')
       .click();
-    cy.get('[aria-label="Dein Warenkorb"]')
+    cy.contains('#SmartCart_title', 'Ihr Warenkorb.')
       .should('exist');
-    cy.get('.gr-drawer__close')
+    cy.get('.rebuy-cart__flyout-close')
       .click();  
 
     cy.get('.gr-logo')

@@ -88,25 +88,25 @@ describe('Adding to the cart, checkout, removing', () => {
 
     cy.wait(2000);
 
-    cy.intercept('GET', '/cart.json').as('checkingCart');
+    //cy.intercept('GET', '/cart.json').as('checkingCart');
 
-    cy.contains('.gr-cart__checkout-btn', 'Warenkorb ansehen')
-      .click();
-    cy.wait('@checkingCart');
+    //cy.contains('.gr-cart__checkout-btn', 'Warenkorb ansehen')
+      //.click();
+    //cy.wait('@checkingCart');
     //cy.wait(2000);
-    cy.url()
-      .should('include', '/cart');
-    cy.contains('h1', 'Dein Warenkorb')
+    //cy.url()
+      //.should('include', '/cart');
+    cy.contains('h2', 'Ihr Warenkorb.')
       .should('exist');
-    cy.contains('#checkout', 'Auschecken')
+    cy.contains('.rebuy-cart__checkout-button', ' Zur Kasse')
       .should('exist');
-    cy.contains('.shopify-section', 'GRÜNER TEPPICH IM AED-EXPO-STIL')
+    cy.contains('.rebuy-cart__flyout-item-product-title', 'GRÜNER TEPPICH IM AED-EXPO-STIL')
       .should('exist');
-    cy.contains('.gr-link', 'Weiter shoppen')
+    cy.contains('.rebuy-cart__flyout-subtotal-label', 'Zwischensumme (1 Artikel)')
       .should('exist');
-    cy.get('.cart__dynamic-checkout-buttons')
+    cy.get('.rebuy-cart__flyout-item-quantity')
       .should('exist');
-    cy.get('.gr-cart-footer-subtotal-wrap')
+    cy.get('.rebuy-cart__flyout-recommendations')
       .should('exist');
   });
 
@@ -186,7 +186,7 @@ describe('Adding to the cart, checkout, removing', () => {
         cy.wait('@addingToCart');
         //cy.wait(5000);
         cy.contains('.gr-cart__checkout-btn', 'Warenkorb ansehen')
-          .click().then(() => {
+          .click( {force: true} ).then(() => {
           cy.get('@savedTextValue').then((savedValue) => {
             cy.get('span.price--end-include-tax')
               .invoke('text')
@@ -197,7 +197,7 @@ describe('Adding to the cart, checkout, removing', () => {
         });
       });
       
-    cy.get('#checkout')
+    cy.get('.rebuy-cart__checkout-button')
       .click();
 
     cy.wait(2000);
@@ -277,18 +277,18 @@ describe('Adding to the cart, checkout, removing', () => {
 
     cy.wait(2000);
 
-    cy.intercept('GET', '/cart.json').as('checkingCart');
+    //cy.intercept('GET', '/cart.json').as('checkingCart');
 
     cy.contains('.gr-cart__checkout-btn', 'Warenkorb ansehen')
-      .click();
+      .click( {force: true} );
 
-    cy.wait('@checkingCart');
+    //cy.wait('@checkingCart');
 
     //cy.wait(2000);
   
-    cy.assertPageUrl('/cart');
+    //cy.assertPageUrl('/cart');
 
-    cy.contains('h1', 'Dein Warenkorb')
+    /*cy.contains('h1', 'Dein Warenkorb')
       .should('exist');
     cy.contains('#checkout', 'Auschecken')
       .should('exist');
@@ -299,21 +299,34 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.get('.cart__dynamic-checkout-buttons')
       .should('exist');
     cy.get('.gr-cart-footer-subtotal-wrap')
+      .should('exist');*/
+
+    cy.contains('h2', 'Ihr Warenkorb.')
+      .should('exist');
+    cy.contains('.rebuy-cart__checkout-button', ' Zur Kasse')
+      .should('exist');
+    cy.contains('.rebuy-cart__flyout-item-product-title', 'Beneca 35 mm Spanngurt')
+      .should('exist');
+    cy.contains('.rebuy-cart__flyout-subtotal-label', 'Zwischensumme (1 Artikel)')
+      .should('exist');
+    cy.get('.rebuy-cart__flyout-item-quantity')
+      .should('exist');
+    cy.get('.rebuy-cart__flyout-recommendations')
       .should('exist');
 
       /*cy.get('.gr-cart-item__del-btn').first().click( {force: true} );*/ 
 
-    cy.get('button[name="minus"]').last().click( {force: true} ); 
+    cy.get('.rebuy-cart__flyout-item-remove').click( {force: true} ); 
 
     cy.wait(4000);
 
-    cy.get('.gr-cart-item__link')
+    cy.get('.rebuy-cart__flyout-item-product-title')
       .should('not.exist');
 
-    cy.contains('h1', 'Ihr Warenkorb ist leer')
+    cy.contains('.ql-align-center', 'Ihr Warenkorb ist leer! ')
       .should('exist');
 
-    cy.contains('.gr-link', 'Weiter shoppen')
+    cy.contains('.ql-align-center', ' Jetzt einkaufen!')
       .should('exist');
 
   });
