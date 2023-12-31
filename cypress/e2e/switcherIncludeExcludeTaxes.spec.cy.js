@@ -39,7 +39,7 @@ describe('switcher taxes', () => {
     cy.wait('@gettingBrand');
 
     cy.contains('.gr-card-rich-product__heading', 'GRABO PRO Elektro-Vakuumheber')
-      .click();
+      .click( {force: true} );
 
     cy.assertPageUrl('/products/grabo-pro-lifter-20')
     cy.get('h1')
