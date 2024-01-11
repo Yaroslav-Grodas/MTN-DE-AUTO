@@ -29,8 +29,8 @@ describe('Increase and decrease quantity functionality', () => {
 
     cy.wait(5000);
 
-    cy.get('[aria-label="Close dialog 1"]')
-      .click( {force: true} );
+    /*cy.get('[aria-label="Close dialog 1"]')
+      .click( {force: true} );*/
 
       cy.wait(2000)
 

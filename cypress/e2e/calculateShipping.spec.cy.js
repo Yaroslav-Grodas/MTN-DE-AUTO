@@ -18,8 +18,8 @@ describe('calculate shipping', () => {
 
       cy.wait(2000)
 
-      cy.get('[aria-label="Close dialog 1"]')
-      .click( {force: true} );
+      /*cy.get('[aria-label="Close dialog 1"]')
+      .click( {force: true} );*/
   });  
 
   it('should allow user to calculate shipping of the product FIRST case', () => {
@@ -70,7 +70,7 @@ describe('calculate shipping', () => {
      
   });
 
-  it.skip('should allow user to calculate shipping of the product SECOND case', () => {
+  it('should allow user to calculate shipping of the product SECOND case', () => {
 
     cy.contains('.gr-header-menu__link', 'Marken')
       .click( {force: true} );
@@ -83,27 +83,27 @@ describe('calculate shipping', () => {
 
     cy.intercept('GET', 'https://de.app.mountainproductions.com/api/get_data?shop=mtn-shop-de-test.myshopify.com*').as('gettingBrand');
 
-    cy.contains('.gr-brands-list__item', 'Edelweiss')
+    cy.contains('.gr-brands-list__item', 'Lemaitre')
       .click();
 
     cy.wait(2000);
 
-    cy.assertPageUrl('/collections/edelweiss');;
+    cy.assertPageUrl('/collections/lemaitre');;
 
     cy.get('h1')
-      .should('contain.text', 'Edelweiss');
+      .should('contain.text', 'Lemaitre');
 
     cy.wait('@gettingBrand');
 
     cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
 
-    cy.contains('.gr-card-rich-product__heading', 'EDELWEISS Alukarabiner O3 oval trilock')
+    cy.contains('.gr-card-rich-product__heading', 'Lemaitre Rider S3')
       .click();
 
     cy.wait(2000);
 
     cy.get('h1')
-      .should('contain.text', 'EDELWEISS Alukarabiner O3 oval trilock');
+      .should('contain.text', 'Lemaitre Rider S3');
 
     cy.wait('@gettingProduct');
 
@@ -113,10 +113,10 @@ describe('calculate shipping', () => {
     cy.wait(2000);
 
     cy.get('#gr_shipping_calculator_country')
-      .select('Belgien');
+      .select('Germany');
 
     cy.get('#gr_shipping_calculator_zip')
-      .type('3831');
+      .type('65929');
 
     cy.contains('.gr-shipping-calc__submit', 'Versandkosten berechnen')
       .click();
@@ -128,7 +128,7 @@ describe('calculate shipping', () => {
 
   });
 
-  it.skip('should allow user to calculate shipping of the product THIRD case', () => {
+  it('should allow user to calculate shipping of the product THIRD case', () => {
 
     cy.contains('.gr-header-menu__link', 'Marken')
       .click();
@@ -159,10 +159,10 @@ describe('calculate shipping', () => {
       .click();
 
     cy.get('#gr_shipping_calculator_country')
-      .select('Niederlande');
+      .select('Switzerland');
 
     cy.get('#gr_shipping_calculator_zip')
-      .type('3067 TT');
+      .type('3030');
 
     cy.contains('.gr-shipping-calc__submit', 'Versandkosten berechnen')
       .click();
