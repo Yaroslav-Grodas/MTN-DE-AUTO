@@ -214,7 +214,7 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.contains('div', 'Lieferadresse')
       .should('exist');
 
-    cy.contains('[type="submit"]', 'Weiter zum Versand')
+    cy.get('#cart-link')
       .should('exist');
 
     cy.contains('Crewsaver Seacrewsader 275N 3D feuerhemmende Schwimmweste 83220')

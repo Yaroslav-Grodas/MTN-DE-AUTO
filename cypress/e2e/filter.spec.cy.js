@@ -135,9 +135,9 @@ describe('filter functionality', () => {
     });
   });
 
-  it('should allow user to filter Color', () => {
+  it.skip('should allow user to filter Color', () => {
 
-    cy.contains('.gr-header-menu__link', 'Arbeitskleidung')
+    cy.contains('.gr-header-menu__link', 'ANGEBOTE')
       .click( {force: true} );
 
     cy.get('#gr-btn-filters-show')

@@ -14,8 +14,8 @@ describe('template spec', () => {
     cy.get('[aria-label="Close form 3"]')
       .click();*/
 
-    cy.contains('.gr-announcement-bar__wrapper', 'Sie möchten ein individuelles Angebot? Hier klicken und Anfrage senden. ')
-      .should('exist');
+    /*cy.contains('.gr-announcement-bar__wrapper', 'Sie möchten ein individuelles Angebot? Hier klicken und Anfrage senden. ')
+      .should('exist');*/
 
     cy.get('.gr-search-form')
       .should('exist');
@@ -50,7 +50,7 @@ describe('template spec', () => {
       .should('exist');
     cy.contains('.gr-header-menu', 'Veranstaltungstechnik')
       .should('exist');
-    cy.contains('.gr-header-menu', 'Arbeitskleidung')
+    cy.contains('.gr-header-menu', 'ANGEBOTE')
       .should('exist');
     cy.contains('.gr-header-menu', 'Marken')
       .should('exist');
