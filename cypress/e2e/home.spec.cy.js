@@ -36,7 +36,7 @@ describe('template spec', () => {
     cy.contains('#SmartCart_title', 'Ihr Warenkorb.')
       .should('exist');
     cy.get('.rebuy-cart__flyout-close')
-      .click();  
+      .click( {force: true} );  
 
     cy.get('.gr-logo')
       .click();
