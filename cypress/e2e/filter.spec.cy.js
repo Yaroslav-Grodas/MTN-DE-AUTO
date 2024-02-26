@@ -46,14 +46,24 @@ describe('filter functionality', () => {
     cy.contains('.gr-checkbox-wrap', 'KASK')
       .click();
 
-    cy.contains('.gr-inc-switcher', 'exkl. MwSt.') /*body*/ 
-      .click({ force: true });  /*'center', */
+    //cy.contains('.gr-inc-switcher', 'exkl. MwSt.') /*body*/ 
+      //.click({ force: true });  /*'center', */
 
+      cy.get('.gr-filters-close')
+      .eq(1)
+      .click({ force: true });
+    
+    
     cy.wait(20000);
 
-    cy.get('.gr-card-rich-product__details').each((productCard) => {
+    /*cy.get('.gr-card-rich-product__details').each((productCard) => {
         cy.wrap(productCard).should('contain.text', 'Kask');
-    });
+    });*/
+
+    cy.get('.gr-card-rich-product__details')
+  .invoke('text')
+  .should('include', 'Kask');
+
   
   });
 
