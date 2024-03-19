@@ -59,17 +59,17 @@ describe('Adding to the cart, checkout, removing', () => {
 
     cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
 
-    cy.contains('.gr-card-rich-product__heading', 'GRÜNER TEPPICH IM AED-EXPO-STIL')
+    cy.contains('.gr-card-rich-product__heading', 'AED Traversenklemme 20KG')
       .click();
 
     cy.wait('@gettingProduct');
 
     //cy.wait(2000);
 
-    cy.assertPageUrl('/products/aed-expo-style-gruner-teppich?variant=46882625651023');
+    cy.assertPageUrl('/products/aed-truss-clamp-20kg');
     
     cy.get('h1')
-      .should('contain.text', 'GRÜNER TEPPICH IM AED-EXPO-STIL');
+      .should('contain.text', 'AED Traversenklemme 20KG');
     cy.get('.gr-price__container')
       .should('exist');
 
@@ -100,7 +100,7 @@ describe('Adding to the cart, checkout, removing', () => {
       .should('exist');
     cy.contains('.rebuy-cart__checkout-button', ' Zur Kasse')
       .should('exist');
-    cy.contains('.rebuy-cart__flyout-item-product-title', 'GRÜNER TEPPICH IM AED-EXPO-STIL')
+    cy.contains('.rebuy-cart__flyout-item-product-title', 'AED Traversenklemme 20KG')
       .should('exist');
     cy.contains('.rebuy-cart__flyout-subtotal-label', 'Zwischensumme (1 Artikel)')
       .should('exist');
