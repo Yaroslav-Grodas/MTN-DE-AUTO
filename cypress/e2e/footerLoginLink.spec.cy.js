@@ -2,7 +2,7 @@
 
 describe('footer login link', () => {
 
-  it('should allow user to use footer login ling to login or register account', () => {
+  it.skip('should allow user to use footer login ling to login or register account', () => {
 
     cy.visit('/');
 

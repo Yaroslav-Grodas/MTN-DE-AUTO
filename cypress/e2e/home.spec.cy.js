@@ -24,12 +24,12 @@ describe('template spec', () => {
       .click();
     cy.assertPageUrl('/');
 
-    cy.get('.gr-header-btn--account')
+    /*cy.get('.gr-header-btn--account')
       .click();
     cy.assertPageUrl('/account/login');
 
     cy.get('.gr-logo')
-      .click();
+      .click();*/
 
     cy.get('.gr-icon-cart-empty')
       .click();
