@@ -57,12 +57,12 @@ describe('Adding to the cart, checkout, removing', () => {
 
     //cy.wait(10000);
 
-    cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
+    //cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
 
     cy.contains('.gr-card-rich-product__heading', 'AED Traversenklemme 20KG')
       .click();
 
-    cy.wait('@gettingProduct');
+    //cy.wait('@gettingProduct');
 
     //cy.wait(2000);
 
@@ -135,12 +135,12 @@ describe('Adding to the cart, checkout, removing', () => {
 
     //cy.wait(10000);
 
-    cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
+    //cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
 
     cy.contains('.gr-card-rich-product__heading', 'Crewsaver Seacrewsader 275N 3D feuerhemmende Schwimmweste 83220')
       .click();
 
-    cy.wait('@gettingProduct')
+    //cy.wait('@gettingProduct')
 
     //cy.wait(2000);
 
@@ -214,7 +214,7 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.contains('div', 'Lieferadresse')
       .should('exist');
 
-    cy.get('#cart-link')
+    cy.get('[href="https://shopmtn.de/cart"]')
       .should('exist');
 
     cy.contains('Crewsaver Seacrewsader 275N 3D feuerhemmende Schwimmweste 83220')
@@ -247,12 +247,12 @@ describe('Adding to the cart, checkout, removing', () => {
 
     //cy.wait(10000);
 
-    cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
+    //cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
 
     cy.contains('.gr-card-rich-product__heading', 'Beneca 35 mm Spanngurt')
       .click();
 
-    cy.wait('@gettingProduct');
+    //cy.wait('@gettingProduct');
 
     //cy.wait(2000);
 

@@ -48,7 +48,7 @@ describe('Increase and decrease quantity functionality', () => {
 
     cy.wait('@gettingBrand');
 
-    cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
+    //cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
 
     cy.contains('.gr-card-rich-product__heading', 'Reutlinger Drahtseilhalter SV III ZW Gabel')
       .click();
@@ -58,7 +58,7 @@ describe('Increase and decrease quantity functionality', () => {
     cy.get('h1')
       .should('contain.text', 'Reutlinger Drahtseilhalter SV III ZW Gabel');
 
-    cy.wait('@gettingProduct');
+    //cy.wait('@gettingProduct');
 
     cy.intercept('GET', '/cart.json').as('addingToCart');
 
@@ -161,7 +161,7 @@ describe('Increase and decrease quantity functionality', () => {
 
     cy.wait('@gettingBrand');
 
-    cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
+    //cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
 
 
     cy.contains('.gr-card-rich-product__heading', 'GRABO Nemo Elektro-Saugheber')
@@ -172,7 +172,7 @@ describe('Increase and decrease quantity functionality', () => {
     cy.get('h1')
       .should('contain.text', 'GRABO Nemo Elektro-Saugheber');
 
-    cy.wait('@gettingProduct');
+    //cy.wait('@gettingProduct');
 
     //cy.intercept('GET', '/cart.json').as('addingToCart');
 
@@ -276,7 +276,7 @@ describe('Increase and decrease quantity functionality', () => {
 
     cy.wait('@gettingBrand');
 
-    cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
+    //cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
 
     cy.contains('.gr-card-rich-product__heading', 'Pfaff ATEX PROLINE Handgabelhubwagen in Edelstahlausführung (HU 20-115 VATP)')
       .click();
@@ -286,7 +286,7 @@ describe('Increase and decrease quantity functionality', () => {
     cy.get('h1')
       .should('contain.text', 'Pfaff ATEX PROLINE Handgabelhubwagen in Edelstahlausführung (HU 20-115 VATP)');
 
-    cy.wait('@gettingProduct');
+    //cy.wait('@gettingProduct');
 
     //cy.intercept('GET', '/cart.json').as('addingToCart');
 
