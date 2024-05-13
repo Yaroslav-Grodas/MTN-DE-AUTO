@@ -122,7 +122,7 @@ describe('filter functionality', () => {
       //.find('button[data-filter-index="3"]')
       .click();
 
-    cy.contains('.gr-checkbox-wrap', 'Handschuhe')
+    cy.contains('.gr-checkbox-wrap', 'Fußsteigklemmen')
       .click({ force: true });
 
     cy.wait(5000)
@@ -141,7 +141,7 @@ describe('filter functionality', () => {
         cy.get('@productCard')
           .find('.gr-card-rich-product__heading')
           .invoke('text')
-          .should('include', 'Handschuhe');
+          .should('include', 'Fußsteigklemme');
     });
   });
 
