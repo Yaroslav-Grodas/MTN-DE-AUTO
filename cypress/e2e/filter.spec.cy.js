@@ -43,7 +43,7 @@ describe('filter functionality', () => {
     cy.contains('h3', 'Kategorie')
       .should('exist');
 
-    cy.contains('.gr-checkbox-wrap', 'KASK')
+    cy.contains('.gr-checkbox-wrap', 'Kask')
       .click();
 
     //cy.contains('.gr-inc-switcher', 'exkl. MwSt.') /*body*/ 

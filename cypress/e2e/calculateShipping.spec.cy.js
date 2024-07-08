@@ -249,13 +249,13 @@ describe('calculate shipping', () => {
 
     //cy.intercept('GET', '/search?view=products_json&*').as('gettingProduct');
 
-    cy.contains('.gr-card-rich-product__heading', 'Klotz HDMI 2.1 AOC Drum - active optical cable armiert - stecker mit schutzkappen')
+    cy.contains('.gr-card-rich-product__heading', 'Klotz HDMI 2.1 AOC Drum - active optical cable armiert - Stecker mit Schutzkappen')
       .click();
 
     cy.wait(2000);
 
     cy.get('h1')
-      .should('contain.text', 'Klotz HDMI 2.1 AOC Drum - active optical cable armiert - stecker mit schutzkappen');
+      .should('contain.text', 'Klotz HDMI 2.1 AOC Drum - active optical cable armiert - Stecker mit Schutzkappen');
 
     //cy.wait('@gettingProduct');
 

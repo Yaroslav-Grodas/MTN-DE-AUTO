@@ -38,14 +38,14 @@ describe('blog page', () => {
     cy.get('.gr-pagination')
       .should('exist');
 
-    cy.contains('.gr-article-card__heading', 'Schutzhelme von Kask')
+    cy.contains('.gr-article-card__heading', 'Yale BatteryStar: Revolutionärer Kettenzug mit Akkuantrieb')
       .click();
 
     cy.get('h1')
-      .should('contain.text', 'Schutzhelme von Kask');
+      .should('contain.text', 'Yale BatteryStar: Revolutionärer Kettenzug mit Akkuantrieb');
 
     cy.get('.gr-author-info')
-      .should('contain.text', 'Deniz Tombak');
+      .should('contain.text', 'Anna Krummacker');
 
     cy.get('.gr-sharing-wrap')
       .should('exist');

@@ -96,7 +96,7 @@ describe('Adding to the cart, checkout, removing', () => {
     //cy.wait(2000);
     //cy.url()
       //.should('include', '/cart');
-    cy.contains('h2', 'Ihr Warenkorb.')
+    cy.contains('h2', 'Ihr Warenkorb')
       .should('exist');
     cy.contains('.rebuy-cart__checkout-button', ' Zur Kasse')
       .should('exist');
@@ -301,7 +301,7 @@ describe('Adding to the cart, checkout, removing', () => {
     cy.get('.gr-cart-footer-subtotal-wrap')
       .should('exist');*/
 
-    cy.contains('h2', 'Ihr Warenkorb.')
+    cy.contains('h2', 'Ihr Warenkorb')
       .should('exist');
     cy.contains('.rebuy-cart__checkout-button', ' Zur Kasse')
       .should('exist');

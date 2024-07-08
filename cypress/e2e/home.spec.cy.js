@@ -33,7 +33,7 @@ describe('template spec', () => {
 
     cy.get('.gr-icon-cart-empty')
       .click();
-    cy.contains('#SmartCart_title', 'Ihr Warenkorb.')
+    cy.contains('#SmartCart_title', 'Ihr Warenkorb')
       .should('exist');
     cy.get('.rebuy-cart__flyout-close')
       .click( {force: true} );  
