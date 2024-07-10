@@ -28,7 +28,7 @@ describe('switcher taxes', () => {
 
     cy.intercept('GET', 'https://de.app.mountainproductions.com/api/get_data?shop=mtn-shop-de-test.myshopify.com*').as('gettingBrand');
 
-    cy.contains('.gr-brands-list__item', 'Grabo')
+    cy.contains('.gr-brands-list__item', 'GRABO - Elektro-Vakuumheber')
       .click();
 
     cy.assertPageUrl('/collections/grabo');

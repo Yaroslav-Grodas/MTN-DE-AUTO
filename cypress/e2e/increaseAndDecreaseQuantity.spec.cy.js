@@ -149,7 +149,7 @@ describe('Increase and decrease quantity functionality', () => {
 
     cy.intercept('GET', 'https://de.app.mountainproductions.com/api/get_data?shop=mtn-shop-de-test.myshopify.com*').as('gettingBrand');
 
-    cy.contains('.gr-brands-list__item', 'Grabo')
+    cy.contains('.gr-brands-list__item', 'GRABO - Elektro-Vakuumheber')
       .click();
 
     cy.wait(2000);
