@@ -117,7 +117,7 @@ describe('template spec', () => {
 
     cy.contains('.gr-footer__nav', 'MTN SHOP')
       .find('li')
-      .should('have.length', 8);
+      .should('have.length', 9);
 
     cy.contains('.gr-footer__nav', 'HILFE & SERVICE')
       .find('li')
